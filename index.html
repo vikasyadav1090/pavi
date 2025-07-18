@@ -46,6 +46,30 @@
             color: #555;
         }
 
+        /* Navigation for MLM features */
+        .mlm-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .mlm-nav a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.95em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .mlm-nav a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+
         /* Hero Section */
         .hero {
             text-align: center;
@@ -211,42 +235,7 @@
             color: #dc3545;
             font-weight: bold;
         }
-
-        /* Contact Form */
-        .contact-form {
-            text-align: center;
-            padding: 25px;
-            background-color: #f0f8ff;
-            border-radius: 10px;
-            opacity: 0; /* Hidden, animated by JS */
-            transform: translateY(30px); /* Initial position for slide-in-up */
-        }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 90%;
-            max-width: 450px;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #cceeff;
-            border-radius: 6px;
-            font-size: 1em;
-        }
-        .contact-form input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-        .contact-form input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
+        
         /* Footer */
         footer {
             text-align: center;
@@ -318,15 +307,16 @@
             .earning-highlight h2 { font-size: 2em; }
             .course-item, .mlm-level { flex: 0 1 100%; min-width: unset; }
             .mlm-chart { font-size: 0.9em; min-width: unset; }
+            .mlm-nav a {
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
         }
         @media (max-width: 480px) {
             .container { padding: 15px; }
             header h1 { font-size: 1.8em; }
             .hero h2 { font-size: 1.8em; }
             .earning-highlight h2 { font-size: 1.8em; }
-            .contact-form input[type="text"],
-            .contact-form input[type="email"],
-            .contact-form textarea { width: 100%; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -336,6 +326,12 @@
         <header>
             <h1>UP Police Exams: Padhai Bhi, Kamai Bhi!</h1>
             <p>सफलता और आत्मनिर्भरता का सुनहरा अवसर।</p>
+            <div class="mlm-nav">
+                <a href="#mlm-dashboard">My Dashboard</a>
+                <a href="#withdrawal-request">Withdrawal Request</a>
+                <a href="#earning-history">Earning History</a>
+                <a href="#mlm-support">MLM Support</a>
+            </div>
         </header>
 
         <section class="hero">
@@ -362,13 +358,13 @@
                     <h3>UP Police Constable Foundation</h3>
                     <p>कांस्टेबल परीक्षा के लिए बुनियादी तैयारी।</p>
                     <p class="price">₹500</p>
-                    <a href="#contact" class="button">Enroll Karein</a>
+                    <a href="#" class="button">Enroll Karein</a>
                 </div>
                 <div class="course-item animate-on-scroll animate-scaleIn" style="animation-delay: 0.3s;">
                     <h3>UP Police SI & Advanced Constable</h3>
                     <p>सब-इंस्पेक्टर और एडवांस कांस्टेबल की गहन तैयारी।</p>
                     <p class="price">₹5000</p>
-                    <a href="#contact" class="button">Enroll Karein</a>
+                    <a href="#" class="button">Enroll Karein</a>
                 </div>
             </div>
         </section>
@@ -412,25 +408,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 25px;">
-                <a href="#contact" class="button">अभी कमाई शुरू करें!</a>
-            </div>
-        </section>
-
-        ---
-
-        <section id="contact" class="section animate-on-scroll animate-slideInUp">
-            <h2>जुड़ें हमसे!</h2>
-            <p style="text-align: center; font-size: 1em; margin-bottom: 20px;">
-                अपना कोर्स चुनें या MLM जानकारी के लिए संपर्क करें।
-            </p>
-            <div class="contact-form animate-on-scroll animate-scaleIn">
-                <form action="#" method="POST">
-                    <input type="text" name="name" placeholder="आपका नाम" required><br>
-                    <input type="email" name="email" placeholder="आपका ईमेल" required><br>
-                    <input type="text" name="phone" placeholder="आपका फ़ोन नंबर" required><br>
-                    <textarea name="message" rows="4" placeholder="आपकी रुचि (जैसे: कोर्स लेना है, MLM की जानकारी चाहिए)" required></textarea><br>
-                    <input type="submit" value="भेजें">
-                </form>
+                <a href="#" class="button">अभी कमाई शुरू करें!</a>
             </div>
         </section>
 
