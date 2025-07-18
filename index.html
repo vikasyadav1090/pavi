@@ -1,171 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lawyer Mera</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
-  <style>
-    body {
-      background: linear-gradient(135deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: #fff;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-    .lawyer-card {
-      background: #fff;
-      color: #000;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .lawyer-card:hover {
-      transform: translateY(-5px);
-    }
-    .navbar {
-      background-color: #0c0032;
-    }
-    .navbar a {
-      color: #fff !important;
-    }
-    .service-section, .product-section {
-      background-color: #ffffff;
-      color: #000000;
-      padding: 40px 0;
-      border-top: 4px solid #ffc107;
-    }
-    .service-section h3, .product-section h3 {
-      color: #0c0032;
-    }
-    .call-expert-section {
-      background-color: #fff3cd;
-      color: #212529;
-      padding: 40px 0;
-      text-align: center;
-    }
-    .call-expert-section h3 {
-      color: #000;
-    }
-    .ai-chatbot-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0c0032;
-      color: #fff;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      z-index: 1000;
-      animation: bounceInRight 1.5s;
-    }
-    .ai-chatbot-button:hover {
-      background-color: #ff9800;
-      color: #000;
-      text-decoration: none;
-    }
-    .animated-heading {
-      animation: fadeInDown 1.2s;
-    }
-    .animated-section {
-      animation: fadeInUp 1.2s;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP Police Exams: Padhai Bhi, Kamai Bhi!</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+        .container {
+            width: 95%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            border-radius: 12px; /* More rounded */
+            overflow: hidden; /* Crucial for animations */
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            /* Animation applied via JS initially, or default fade-in */
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease-out forwards; /* Initial animation for header */
+        }
+        header h1 {
+            color: #0056b3;
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: #fff;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: scaleIn 1s ease-out forwards 0.3s; /* Initial scale-in for hero */
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            animation: floating 3s ease-in-out infinite; /* Floating text effect */
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite; /* Button pulse effect */
+        }
+        .button:hover {
+            background-color: #218838;
+            transform: translateY(-2px) scale(1.02); /* Lift and slight scale on hover */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Earning Highlight */
+        .earning-highlight {
+            background-color: #fffacd;
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px auto;
+            max-width: 700px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards 0.8s; /* Delayed fade-in */
+        }
+        .earning-highlight h2 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 900;
+            display: inline-block;
+        }
+        .earning-highlight .yellow-text {
+            color: #e6b800;
+        }
+        .earning-highlight .red-text {
+            color: #cc0000;
+        }
+
+        /* Sections */
+        .section {
+            padding: 25px 0;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #e0e0e0;
+            opacity: 0; /* Hidden by default, animated by JS */
+            transform: translateX(-50px); /* Initial position for slide-in-left */
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        .section h2 {
+            text-align: center;
+            color: #0056b3;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .course-details, .mlm-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .course-item, .mlm-level {
+            flex: 0 1 calc(50% - 20px);
+            min-width: 280px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: scale(0.95); /* Slightly scaled down initially */
+            opacity: 0; /* Hidden, animated by JS */
+        }
+        .course-item:hover, .mlm-level:hover {
+            transform: translateY(-5px) scale(1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .price {
+            font-size: 2em;
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .mlm-level .earnings {
+            font-size: 1.8em;
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* MLM Chart Styling */
+        .mlm-chart-container {
+            margin-top: 30px;
+            overflow-x: auto;
+            opacity: 0; /* Hidden, animated by JS */
+            transform: translateX(50px); /* Initial position for slide-in-right */
+        }
+        .mlm-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            font-size: 0.95em;
+            min-width: 500px;
+        }
+        .mlm-chart th, .mlm-chart td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: center;
+        }
+        .mlm-chart th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .mlm-chart tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .mlm-chart .level-column {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .mlm-chart .commission-500 {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .mlm-chart .commission-5000 {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            text-align: center;
+            padding: 25px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            opacity: 0; /* Hidden, animated by JS */
+            transform: translateY(30px); /* Initial position for slide-in-up */
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 90%;
+            max-width: 450px;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #cceeff;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 25px;
+            color: #777;
+            font-size: 0.85em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards 1.8s; /* Delayed fade-in */
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.7); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 3px 6px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.03); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
+            100% { transform: scale(1); box-shadow: 0 3px 6px rgba(0,0,0,0.2); }
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* JavaScript-controlled animation classes */
+        .animate-on-scroll.animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+        .animate-on-scroll.animate-slideInUp { animation: slideInUp 1s ease-out forwards; }
+        .animate-on-scroll.animate-slideInLeft { animation: slideInLeft 1s ease-out forwards; }
+        .animate-on-scroll.animate-slideInRight { animation: slideInRight 1s ease-out forwards; }
+        .animate-on-scroll.animate-scaleIn { animation: scaleIn 1s ease-out forwards; }
+        .animate-on-scroll .course-item.animate-scaleIn { animation: scaleIn 0.8s ease-out forwards; } /* Specific for course items */
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2em; }
+            .earning-highlight h2 { font-size: 2em; }
+            .course-item, .mlm-level { flex: 0 1 100%; min-width: unset; }
+            .mlm-chart { font-size: 0.9em; min-width: unset; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 15px; }
+            header h1 { font-size: 1.8em; }
+            .hero h2 { font-size: 1.8em; }
+            .earning-highlight h2 { font-size: 1.8em; }
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea { width: 100%; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark px-5 animate__animated animate__fadeInDown">
-    <a class="navbar-brand" href="#">Lawyer Mera</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#family">Family Matters</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bails">Bails</a></li>
-        <li class="nav-item"><a class="nav-link" href="#cyber">Cyber Crime</a></li>
-        <li class="nav-item"><a class="nav-link" href="#marriage">Court Marriage</a></li>
-        <li class="nav-item"><a class="nav-link" href="#notice">Legal Notice</a></li>
-        <li class="nav-item"><a class="nav-link" href="#challan">Challan</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container my-5 animate__animated animate__fadeIn">
-    <h2 class="text-center animated-heading">Featured Lawyer</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="lawyer-card p-3">
-          <div class="text-center">
-            <img src="https://via.placeholder.com/200" alt="Advocate Vikas Yadav" class="img-fluid rounded-circle mb-3" style="max-height: 200px;">
-            <h4>Advocate Vikas Yadav</h4>
-            <p>Specialization: Criminal & Family Law</p>
-            <p>Location: Etawah</p>
-            <p>Languages: Hindi, English</p>
-            <p>📞 8979737979</p>
-            <a href="https://wa.me/918979737979" class="btn btn-success m-1">WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="call-expert-section animate__animated animate__zoomIn">
     <div class="container">
-      <h3>Need Quick Legal Help?</h3>
-      <p>Speak instantly with a verified legal expert for just ₹29. Get guidance on any legal matter like family issues, bail, property, or documentation in minutes.</p>
-      <a href="tel:8979737979" class="btn btn-danger btn-lg mt-3">Call an Expert Now – ₹29 Only</a>
+        <header>
+            <h1>UP Police Exams: Padhai Bhi, Kamai Bhi!</h1>
+            <p>सफलता और आत्मनिर्भरता का सुनहरा अवसर।</p>
+        </header>
+
+        <section class="hero">
+            <h2>अपना सरकारी नौकरी का सपना पूरा करें!</h2>
+            <p>Comprehensive Courses + Lucrative Earning Opportunity</p>
+            <a href="#courses" class="button">Courses Dekhein</a>
+        </section>
+
+        ---
+
+        <section id="earning-potential" class="earning-highlight animate-on-scroll animate-fadeIn">
+            <h2>
+                <span class="yellow-text">₹6000</span> <span class="red-text">रोज</span> <span class="yellow-text">कमाओ!</span>
+            </h2>
+            <p>अपनी पढ़ाई के साथ-साथ हर दिन अतिरिक्त आय अर्जित करें।</p>
+        </section>
+
+        ---
+
+        <section id="courses" class="section animate-on-scroll animate-slideInLeft">
+            <h2>हमारे खास कोर्सेज</h2>
+            <div class="course-details">
+                <div class="course-item animate-on-scroll animate-scaleIn" style="animation-delay: 0.1s;">
+                    <h3>UP Police Constable Foundation</h3>
+                    <p>कांस्टेबल परीक्षा के लिए बुनियादी तैयारी।</p>
+                    <p class="price">₹500</p>
+                    <a href="#contact" class="button">Enroll Karein</a>
+                </div>
+                <div class="course-item animate-on-scroll animate-scaleIn" style="animation-delay: 0.3s;">
+                    <h3>UP Police SI & Advanced Constable</h3>
+                    <p>सब-इंस्पेक्टर और एडवांस कांस्टेबल की गहन तैयारी।</p>
+                    <p class="price">₹5000</p>
+                    <a href="#contact" class="button">Enroll Karein</a>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="mlm" class="section animate-on-scroll animate-slideInRight">
+            <h2>MLM प्रोग्राम से कमाएं!</h2>
+            <p style="text-align: center; font-size: 0.95em; margin-bottom: 20px;">
+                रेफर करें और हर सेल पर कमीशन पाएं।
+            </p>
+
+            <div class="mlm-chart-container animate-on-scroll animate-slideInUp">
+                <h3 style="text-align: center; color: #0056b3; margin-top: 20px; margin-bottom: 15px; font-size: 1.5em;">कमीशन स्ट्रक्चर</h3>
+                <table class="mlm-chart">
+                    <thead>
+                        <tr>
+                            <th>MLM Level</th>
+                            <th>₹500 कोर्स कमीशन</th>
+                            <th>₹5000 कोर्स कमीशन</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="level-column">Level 1 (Direct)</td>
+                            <td class="commission-500">₹150</td>
+                            <td class="commission-5000">₹1500</td>
+                        </tr>
+                        <tr>
+                            <td class="level-column">Level 2</td>
+                            <td class="commission-500">₹75</td>
+                            <td class="commission-5000">₹750</td>
+                        </tr>
+                        <tr>
+                            <td class="level-column">Level 3</td>
+                            <td class="commission-500">₹25</td>
+                            <td class="commission-5000">₹250</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#contact" class="button">अभी कमाई शुरू करें!</a>
+            </div>
+        </section>
+
+        ---
+
+        <section id="contact" class="section animate-on-scroll animate-slideInUp">
+            <h2>जुड़ें हमसे!</h2>
+            <p style="text-align: center; font-size: 1em; margin-bottom: 20px;">
+                अपना कोर्स चुनें या MLM जानकारी के लिए संपर्क करें।
+            </p>
+            <div class="contact-form animate-on-scroll animate-scaleIn">
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="आपका नाम" required><br>
+                    <input type="email" name="email" placeholder="आपका ईमेल" required><br>
+                    <input type="text" name="phone" placeholder="आपका फ़ोन नंबर" required><br>
+                    <textarea name="message" rows="4" placeholder="आपकी रुचि (जैसे: कोर्स लेना है, MLM की जानकारी चाहिए)" required></textarea><br>
+                    <input type="submit" value="भेजें">
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 [Your Company Name]. सर्वाधिकार सुरक्षित।</p>
+            <p>डिस्क्लेमर: MLM आय व्यक्तिगत प्रयासों और बिक्री प्रदर्शन पर निर्भर करती है। ₹6000 दैनिक आय संभावित कमाई का एक उदाहरण है, इसकी कोई गारंटी नहीं है।</p>
+            <p>संपर्क: [Your Contact Email/Phone]</p>
+        </footer>
     </div>
-  </section>
 
-  <section class="product-section text-center animate__animated animate__fadeInUp">
-    <div class="container">
-      <h3>Premium Legal Resources</h3>
-      <p class="lead">Lifetime access at an unbeatable price</p>
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <div class="p-4 border rounded">
-            <h5>📄 Drafting Templates</h5>
-            <p>Get access to 5000+ legal drafts including agreements, notices, and petitions for just ₹199 (Lifetime Access)</p>
-            <a href="#" class="btn btn-warning">Buy Now ₹199</a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="p-4 border rounded">
-            <h5>📚 Complete LLB Course</h5>
-            <p>All LLB subjects covered, video + PDFs + case laws. Available now for ₹249 (Lifetime Access)</p>
-            <a href="#" class="btn btn-warning">Buy Now ₹249</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        // JavaScript for staggered animations as sections come into view
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 
-  <section class="service-section text-center animate__animated animate__fadeInUp">
-    <div class="container">
-      <h3>India's Top Rated Legal & Tax Services Platform</h3>
-      <p class="lead">Connecting you with experts to simplify your legal, tax & compliance matters.</p>
-      <div class="row mt-4">
-        <div class="col-md-2"><button class="btn btn-outline-primary w-100">GST Registration</button></div>
-        <div class="col-md-2"><button class="btn btn-outline-primary w-100">Company Registration</button></div>
-        <div class="col-md-3"><button class="btn btn-outline-primary w-100">Accounting & Compliance</button></div>
-        <div class="col-md-2"><button class="btn btn-outline-primary w-100">Trademark Filing</button></div>
-        <div class="col-md-3"><button class="btn btn-outline-primary w-100">Ask Any Legal Question</button></div>
-      </div>
-    </div>
-  </section>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const classes = entry.target.className.split(' ');
+                        let animationClass = '';
+                        // Find the specific animation class to apply
+                        if (classes.includes('animate-fadeIn')) animationClass = 'animate-fadeIn';
+                        else if (classes.includes('animate-slideInUp')) animationClass = 'animate-slideInUp';
+                        else if (classes.includes('animate-slideInLeft')) animationClass = 'animate-slideInLeft';
+                        else if (classes.includes('animate-slideInRight')) animationClass = 'animate-slideInRight';
+                        else if (classes.includes('animate-scaleIn')) animationClass = 'animate-scaleIn';
 
-  <a href="#" onclick="alert('To use Legal AI Vakil, please subscribe for ₹100/month.');" class="ai-chatbot-button">
-    🤖 Legal AI - ₹100/month
-  </a>
+                        if (animationClass) {
+                            entry.target.classList.add(animationClass);
+                        }
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
 
-  <footer class="text-center p-3" style="background-color: #0c0032;">
-    <p class="text-white mb-0">&copy; 2025 Lawyer Mera | Made with ❤️</p>
-  </footer>
+            animateOnScrollElements.forEach(element => {
+                observer.observe(element);
+            });
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            // Initial animations for elements already in view (like header, hero, earning-highlight)
+            document.querySelector('header').style.opacity = 1; /* Already animated by CSS */
+            document.querySelector('.hero').style.opacity = 1; /* Already animated by CSS */
+            document.querySelector('.earning-highlight').style.opacity = 1; /* Already animated by CSS */
+            document.querySelector('footer').style.opacity = 1; /* Already animated by CSS */
+
+        });
+    </script>
 </body>
 </html>
