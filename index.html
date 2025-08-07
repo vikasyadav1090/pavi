@@ -8,8 +8,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
         :root {
-            --primary-color: #1a237e; /* Dark Blue */
-            --secondary-color: #e53935; /* Red */
+            --primary-color: #0d1a26; /* Dark Blue */
+            --secondary-color: #A34343; /* Red */
             --accent-color: #ff9800; /* Orange */
             --text-light: #f5f5f5;
             --text-dark: #1f1f1f;
@@ -100,20 +100,25 @@
             margin-bottom: 2rem;
             max-width: 600px;
         }
-
-        .cta-button {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 1rem 2.5rem;
+        
+        .whatsapp-hero-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 5px;
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: 600;
-            border-radius: 5px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
-        .cta-button:hover {
-            background-color: #ff5e5e;
+        .whatsapp-hero-button i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .whatsapp-hero-button:hover {
+            background-color: #128C7E;
             transform: scale(1.05);
         }
 
@@ -185,44 +190,8 @@
         .card-content p {
             font-size: 1rem;
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
         }
         
-        .book-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .book-button:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .whatsapp-book-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: #25D366;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 1rem;
-        }
-        .whatsapp-book-button i {
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-        .whatsapp-book-button:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-        }
-
         /* --- Gallery Section --- */
         .gallery {
             max-width: 1200px;
@@ -290,29 +259,30 @@
             color: var(--secondary-color);
         }
 
-        /* --- Floating WhatsApp Button --- */
+        /* --- WhatsApp Floating Button --- */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             bottom: 40px;
             right: 40px;
             background-color: #25D366;
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            font-size: 35px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
             z-index: 1001;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
+            background-color: #128C7E;
         }
         
         /* --- Responsive Design --- */
@@ -332,9 +302,9 @@
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
             }
         }
     </style>
@@ -350,7 +320,6 @@
                 <li><a href="#rooms">Rooms</a></li>
                 <li><a href="#bar">Bar</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#booking">Book Now</a></li>
             </ul>
         </nav>
     </header>
@@ -359,7 +328,7 @@
         <section class="hero" id="home">
             <h1>Strand Rayan</h1>
             <p>Where luxury and exceptional experiences meet. The new trend in Etawah.</p>
-            <a href="https://wa.me/8279608163?text=Hello%2C%20I%20would%20like%20to%20make%20a%20booking%20at%20Strand%20Rayan." class="whatsapp-book-button">
+            <a href="https://wa.me/8279608163?text=Hello%20Vakil%20Saab" class="whatsapp-hero-button">
                 <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
             </a>
         </section>
@@ -373,9 +342,6 @@
                     <div class="card-content">
                         <h3>Luxury Suite</h3>
                         <p>Enjoy our spacious luxury suites with modern amenities and a beautiful view.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20book%20a%20Luxury%20Suite." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
                 <div class="card">
@@ -383,9 +349,6 @@
                     <div class="card-content">
                         <h3>Deluxe Room</h3>
                         <p>Our deluxe rooms offer a perfect blend of comfort and elegance for a relaxing stay.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20book%20a%20Deluxe%20Room." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
                 <div class="card">
@@ -393,9 +356,6 @@
                     <div class="card-content">
                         <h3>Standard Room</h3>
                         <p>Cozy and comfortable, our standard rooms provide everything you need for a pleasant night.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20book%20a%20Standard%20Room." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
             </div>
@@ -410,9 +370,6 @@
                     <div class="card-content">
                         <h3>Bar Seats</h3>
                         <p>Relax at our stylish bar and enjoy expertly crafted cocktails and fine spirits.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20reserve%20a%20bar%20seat." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
                 <div class="card">
@@ -420,9 +377,6 @@
                     <div class="card-content">
                         <h3>Restaurant Tables</h3>
                         <p>Dine with family and friends in our elegant restaurant with a diverse menu.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20book%20a%20restaurant%20table." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
                 <div class="card">
@@ -430,9 +384,6 @@
                     <div class="card-content">
                         <h3>Outdoor Seating</h3>
                         <p>Enjoy the weather and our outdoor ambiance for a perfect dining experience.</p>
-                        <a href="https://wa.me/8279608163?text=Hello%2C%20I%20want%20to%20book%20an%20outdoor%20table." class="whatsapp-book-button">
-                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-                        </a>
                     </div>
                 </div>
             </div>
@@ -442,69 +393,35 @@
             <h2 class="section-heading">Photo Gallery</h2>
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1625220194771-7df7c6b5b814?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1">
+                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517840134446-c73400569768?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2">
+                    <img src="https://images.unsplash.com/photo-1549488344-9f4a0a194ed8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555543788-b22301c40b8a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3">
+                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1549488344-9f4a0a194ed8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4">
+                    <img src="https://images.unsplash.com/photo-1543884399-5285311f44e1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 5">
+                    <img src="https://images.unsplash.com/photo-1517840134446-c73400569768?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11277688?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 6">
                 </div>
             </div>
         </section>
-
-        <section class="booking-section" id="booking">
-            <h2 class="section-heading">Book Now</h2>
-            <p style="margin-bottom: 2rem;">Fill the form below to book a room or reserve a table, or chat with us on WhatsApp.</p>
-            
-            <form class="booking-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time" required>
-                </div>
-                <div class="form-group">
-                    <label for="type">Booking Type</label>
-                    <select id="type" name="type" required>
-                        <option value="">Select...</option>
-                        <option value="room">Room Booking</option>
-                        <option value="table">Table Booking (Bar/Restaurant)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Message</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
-                </div>
-                <button type="submit" class="submit-button">Submit Booking</button>
-            </form>
-        </section>
     </main>
 
-    <a href="https://wa.me/8279608163?text=Hello%2C%20I%20would%20like%20to%20make%20a%20booking%20at%20Strand%20Rayan." class="whatsapp-float">
+    <a href="https://wa.me/8279608163?text=Hello%20Vakil%20Saab" class="whatsapp-float">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <footer>
         <div class="footer-content">
             <div class="logo">Strand Rayan</div>
-            <p>123, Gandhi Nagar, Etawah, Uttar Pradesh</p>
+            <p>Vijaynagar Road, Friends Colony, Near Indian Bank, Etawah, Uttar Pradesh</p>
             <p>Monday - Sunday: 10 AM to 11 PM</p>
             <p>Phone: +91 8279608163 | Email: info@strandrayan.com</p>
             <div class="social-links">
