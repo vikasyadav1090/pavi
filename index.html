@@ -3,460 +3,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UP Police Exams: Padhai Bhi, Kamai Bhi!</title>
+    <title>Strand Rayan - Hotel & Restaurant</title>
     <style>
-        /* Base Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #0d1a26;
+            --secondary-color: #A34343;
+            --text-light: #f5f5f5;
+            --text-dark: #1f1f1f;
+            --background-dark: #0A0A0A;
+            --background-light: #f4f7f9;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
         }
-        .container {
-            width: 95%;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
-            border-radius: 12px; /* More rounded */
-            overflow: hidden; /* Crucial for animations */
-        }
+
+        /* --- Header & Navigation --- */
         header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 25px;
-            /* Animation applied via JS initially, or default fade-in */
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInDown 1s ease-out forwards; /* Initial animation for header */
-        }
-        header h1 {
-            color: #0056b3;
-            font-size: 2.2em;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 1em;
-            color: #555;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navigation for MLM features */
-        .mlm-nav {
-            margin-top: 20px;
+        nav {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .mlm-nav a {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.95em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .mlm-nav a:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 30px 0;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: #fff;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.9);
-            animation: scaleIn 1s ease-out forwards 0.3s; /* Initial scale-in for hero */
-        }
-        .hero h2 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 800;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: floating 3s ease-in-out infinite; /* Floating text effect */
-        }
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 25px;
-        }
-        .button {
-            display: inline-block;
-            background-color: #28a745;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite; /* Button pulse effect */
-        }
-        .button:hover {
-            background-color: #218838;
-            transform: translateY(-2px) scale(1.02); /* Lift and slight scale on hover */
-            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-        }
-
-        /* Earning Highlight */
-        .earning-highlight {
-            background-color: #fffacd;
-            color: #333;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 25px auto;
-            max-width: 700px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s ease-out forwards 0.8s; /* Delayed fade-in */
-        }
-        .earning-highlight h2 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 900;
-            display: inline-block;
-        }
-        .earning-highlight .yellow-text {
-            color: #e6b800;
-        }
-        .earning-highlight .red-text {
-            color: #cc0000;
-        }
-
-        /* Sections */
-        .section {
-            padding: 25px 0;
-            margin-bottom: 25px;
-            border-bottom: 1px dashed #e0e0e0;
-            opacity: 0; /* Hidden by default, animated by JS */
-            transform: translateX(-50px); /* Initial position for slide-in-left */
-        }
-        .section:last-of-type {
-            border-bottom: none;
-        }
-        .section h2 {
-            text-align: center;
-            color: #0056b3;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        .course-details, .mlm-details {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .course-item, .mlm-level {
-            flex: 0 1 calc(50% - 20px);
-            min-width: 280px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            transform: scale(0.95); /* Slightly scaled down initially */
-            opacity: 0; /* Hidden, animated by JS */
-        }
-        .course-item:hover, .mlm-level:hover {
-            transform: translateY(-5px) scale(1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-        .price {
-            font-size: 2em;
-            color: #dc3545;
-            font-weight: bold;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-        .mlm-level .earnings {
-            font-size: 1.8em;
-            color: #28a745;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* MLM Chart Styling */
-        .mlm-chart-container {
-            margin-top: 30px;
-            overflow-x: auto;
-            opacity: 0; /* Hidden, animated by JS */
-            transform: translateX(50px); /* Initial position for slide-in-right */
-        }
-        .mlm-chart {
-            width: 100%;
-            border-collapse: collapse;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
-            font-size: 0.95em;
-            min-width: 500px;
+            padding: 0 2rem;
         }
-        .mlm-chart th, .mlm-chart td {
-            border: 1px solid #ddd;
-            padding: 10px 12px;
-            text-align: center;
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
         }
-        .mlm-chart th {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            font-size: 1.05em;
+
+        .nav-links {
+            list-style: none;
+            display: flex;
         }
-        .mlm-chart tr:nth-child(even) {
-            background-color: #f2f2f2;
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
         }
-        .mlm-chart .level-column {
-            font-weight: bold;
-            color: #0056b3;
-        }
-        .mlm-chart .commission-500 {
-            color: #28a745;
-            font-weight: bold;
-        }
-        .mlm-chart .commission-5000 {
-            color: #dc3545;
-            font-weight: bold;
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
         }
         
-        /* Footer */
-        footer {
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 20px;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 25px;
-            color: #777;
-            font-size: 0.85em;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s ease-out forwards 1.8s; /* Delayed fade-in */
+            padding: 0 2rem;
         }
 
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
 
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+        .cta-button:hover {
+            background-color: #ff5e5e;
+            transform: scale(1.05);
         }
 
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+        /* --- Main Content Sections --- */
+        .container {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
         }
 
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.7); }
-            to { opacity: 1; transform: scale(1); }
+        .section-heading {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 3px 6px rgba(0,0,0,0.2); }
-            50% { transform: scale(1.03); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
-            100% { transform: scale(1); box-shadow: 0 3px 6px rgba(0,0,0,0.2); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0px); }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* JavaScript-controlled animation classes */
-        .animate-on-scroll.animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
-        .animate-on-scroll.animate-slideInUp { animation: slideInUp 1s ease-out forwards; }
-        .animate-on-scroll.animate-slideInLeft { animation: slideInLeft 1s ease-out forwards; }
-        .animate-on-scroll.animate-slideInRight { animation: slideInRight 1s ease-out forwards; }
-        .animate-on-scroll.animate-scaleIn { animation: scaleIn 1s ease-out forwards; }
-        .animate-on-scroll .course-item.animate-scaleIn { animation: scaleIn 0.8s ease-out forwards; } /* Specific for course items */
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
 
+        .card-content {
+            padding: 2rem;
+        }
 
-        /* Responsive adjustments */
+        .card-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .book-button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* --- Booking Form Section --- */
+        .booking-section {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .booking-section h2 {
+            color: var(--secondary-color);
+        }
+        
+        .booking-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: grid;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: var(--text-light);
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: 2px solid var(--secondary-color);
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background-color: #ff5e5e;
+        }
+        
+        /* --- Gallery Section --- */
+        .gallery {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .gallery-container {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .gallery-item {
+            min-width: 350px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .hero h2 { font-size: 2em; }
-            .earning-highlight h2 { font-size: 2em; }
-            .course-item, .mlm-level { flex: 0 1 100%; min-width: unset; }
-            .mlm-chart { font-size: 0.9em; min-width: unset; }
-            .mlm-nav a {
-                padding: 6px 10px;
-                font-size: 0.85em;
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-heading {
+                font-size: 2.5rem;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
         }
-        @media (max-width: 480px) {
-            .container { padding: 15px; }
-            header h1 { font-size: 1.8em; }
-            .hero h2 { font-size: 1.8em; }
-            .earning-highlight h2 { font-size: 1.8em; }
-        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>UP Police Exams: Padhai Bhi, Kamai Bhi!</h1>
-            <p>सफलता और आत्मनिर्भरता का सुनहरा अवसर।</p>
-            <div class="mlm-nav">
-                <a href="#mlm-dashboard">My Dashboard</a>
-                <a href="#withdrawal-request">Withdrawal Request</a>
-                <a href="#earning-history">Earning History</a>
-                <a href="#mlm-support">MLM Support</a>
-            </div>
-        </header>
 
-        <section class="hero">
-            <h2>अपना सरकारी नौकरी का सपना पूरा करें!</h2>
-            <p>Comprehensive Courses + Lucrative Earning Opportunity</p>
-            <a href="#courses" class="button">Courses Dekhein</a>
+    <header>
+        <nav>
+            <div class="logo">Strand Rayan</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#bar">Bar</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h1>Strand Rayan</h1>
+            <p>Where luxury and exceptional experiences meet. The new trend in Etawah.</p>
+            <a href="#booking" class="cta-button">Book Now</a>
         </section>
 
-        ---
-
-        <section id="earning-potential" class="earning-highlight animate-on-scroll animate-fadeIn">
-            <h2>
-                <span class="yellow-text">₹6000</span> <span class="red-text">रोज</span> <span class="yellow-text">कमाओ!</span>
-            </h2>
-            <p>अपनी पढ़ाई के साथ-साथ हर दिन अतिरिक्त आय अर्जित करें।</p>
-        </section>
-
-        ---
-
-        <section id="courses" class="section animate-on-scroll animate-slideInLeft">
-            <h2>हमारे खास कोर्सेज</h2>
-            <div class="course-details">
-                <div class="course-item animate-on-scroll animate-scaleIn" style="animation-delay: 0.1s;">
-                    <h3>UP Police Constable Foundation</h3>
-                    <p>कांस्टेबल परीक्षा के लिए बुनियादी तैयारी।</p>
-                    <p class="price">₹500</p>
-                    <a href="#" class="button">Enroll Karein</a>
+        <section class="container" id="rooms">
+            <h2 class="section-heading">Our Rooms</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Experience the perfect blend of style and comfort. Stay in our rooms with great amenities.</p>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1596436889140-5a025642a865?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Room Interior" class="card-image">
+                    <div class="card-content">
+                        <h3>Luxury Suite</h3>
+                        <p>Enjoy our spacious luxury suites with modern amenities and a beautiful view.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
                 </div>
-                <div class="course-item animate-on-scroll animate-scaleIn" style="animation-delay: 0.3s;">
-                    <h3>UP Police SI & Advanced Constable</h3>
-                    <p>सब-इंस्पेक्टर और एडवांस कांस्टेबल की गहन तैयारी।</p>
-                    <p class="price">₹5000</p>
-                    <a href="#" class="button">Enroll Karein</a>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deluxe Room Interior" class="card-image">
+                    <div class="card-content">
+                        <h3>Deluxe Room</h3>
+                        <p>Our deluxe rooms offer a perfect blend of comfort and elegance for a relaxing stay.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Standard Room Interior" class="card-image">
+                    <div class="card-content">
+                        <h3>Standard Room</h3>
+                        <p>Cozy and comfortable, our standard rooms provide everything you need for a pleasant night.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        ---
-
-        <section id="mlm" class="section animate-on-scroll animate-slideInRight">
-            <h2>MLM प्रोग्राम से कमाएं!</h2>
-            <p style="text-align: center; font-size: 0.95em; margin-bottom: 20px;">
-                रेफर करें और हर सेल पर कमीशन पाएं।
-            </p>
-
-            <div class="mlm-chart-container animate-on-scroll animate-slideInUp">
-                <h3 style="text-align: center; color: #0056b3; margin-top: 20px; margin-bottom: 15px; font-size: 1.5em;">कमीशन स्ट्रक्चर</h3>
-                <table class="mlm-chart">
-                    <thead>
-                        <tr>
-                            <th>MLM Level</th>
-                            <th>₹500 कोर्स कमीशन</th>
-                            <th>₹5000 कोर्स कमीशन</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="level-column">Level 1 (Direct)</td>
-                            <td class="commission-500">₹150</td>
-                            <td class="commission-5000">₹1500</td>
-                        </tr>
-                        <tr>
-                            <td class="level-column">Level 2</td>
-                            <td class="commission-500">₹75</td>
-                            <td class="commission-5000">₹750</td>
-                        </tr>
-                        <tr>
-                            <td class="level-column">Level 3</td>
-                            <td class="commission-500">₹25</td>
-                            <td class="commission-5000">₹250</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div style="text-align: center; margin-top: 25px;">
-                <a href="#" class="button">अभी कमाई शुरू करें!</a>
+        <section class="container" id="bar">
+            <h2 class="section-heading">Our Bar & Restaurant</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Enjoy delicious food and a wide selection of drinks in a vibrant and trendy atmosphere.</p>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1596404746685-64906f0e7d56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bar Interior" class="card-image">
+                    <div class="card-content">
+                        <h3>Bar Seats</h3>
+                        <p>Relax at our stylish bar and enjoy expertly crafted cocktails and fine spirits.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1550541768-450f61d02c5f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Interior" class="card-image">
+                    <div class="card-content">
+                        <h3>Restaurant Tables</h3>
+                        <p>Dine with family and friends in our elegant restaurant with a diverse menu.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555543788-b22301c40b8a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Outdoor Seating" class="card-image">
+                    <div class="card-content">
+                        <h3>Outdoor Seating</h3>
+                        <p>Enjoy the weather and our outdoor ambiance for a perfect dining experience.</p>
+                        <a href="#booking" class="book-button">Book</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <footer>
-            <p>&copy; 2025 [Your Company Name]. सर्वाधिकार सुरक्षित।</p>
-            <p>डिस्क्लेमर: MLM आय व्यक्तिगत प्रयासों और बिक्री प्रदर्शन पर निर्भर करती है। ₹6000 दैनिक आय संभावित कमाई का एक उदाहरण है, इसकी कोई गारंटी नहीं है।</p>
-            <p>संपर्क: [Your Contact Email/Phone]</p>
-        </footer>
-    </div>
+        <section class="gallery" id="gallery">
+            <h2 class="section-heading">Photo Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543884399-5285311f44e1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1625220194771-7df7c6b5b814?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517840134446-c73400569768?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549488344-9f4a0a194ed8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 5">
+                </div>
+            </div>
+        </section>
 
-    <script>
-        // JavaScript for staggered animations as sections come into view
-        document.addEventListener('DOMContentLoaded', () => {
-            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+        <section class="booking-section" id="booking">
+            <h2 class="section-heading">Book Now</h2>
+            <p style="margin-bottom: 2rem;">Fill the form below to book a room or reserve a table.</p>
+            
+            <form class="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Booking Type</label>
+                    <select id="type" name="type" required>
+                        <option value="">Select...</option>
+                        <option value="room">Room Booking</option>
+                        <option value="table">Table Booking (Bar/Restaurant)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Booking</button>
+            </form>
+        </section>
+    </main>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const classes = entry.target.className.split(' ');
-                        let animationClass = '';
-                        // Find the specific animation class to apply
-                        if (classes.includes('animate-fadeIn')) animationClass = 'animate-fadeIn';
-                        else if (classes.includes('animate-slideInUp')) animationClass = 'animate-slideInUp';
-                        else if (classes.includes('animate-slideInLeft')) animationClass = 'animate-slideInLeft';
-                        else if (classes.includes('animate-slideInRight')) animationClass = 'animate-slideInRight';
-                        else if (classes.includes('animate-scaleIn')) animationClass = 'animate-scaleIn';
+    <a href="https://wa.me/8279608163?text=Hello%2C%20I%20would%20like%20to%20make%20a%20booking%20at%20Strand%20Rayan." class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-                        if (animationClass) {
-                            entry.target.classList.add(animationClass);
-                        }
-                        observer.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            }, {
-                threshold: 0.1 // Trigger when 10% of the section is visible
-            });
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Strand Rayan</div>
+            <p>123, Gandhi Nagar, Etawah, Uttar Pradesh</p>
+            <p>Monday - Sunday: 10 AM to 11 PM</p>
+            <p>Phone: +91 8279608163 | Email: info@strandrayan.com</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;">&copy; 2025 Strand Rayan. All Rights Reserved.</p>
+    </footer>
 
-            animateOnScrollElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Initial animations for elements already in view (like header, hero, earning-highlight)
-            document.querySelector('header').style.opacity = 1; /* Already animated by CSS */
-            document.querySelector('.hero').style.opacity = 1; /* Already animated by CSS */
-            document.querySelector('.earning-highlight').style.opacity = 1; /* Already animated by CSS */
-            document.querySelector('footer').style.opacity = 1; /* Already animated by CSS */
-
-        });
-    </script>
 </body>
 </html>
