@@ -1,485 +1,719 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strand Rayan - Hotel & Restaurant</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
-
-        :root {
-            --primary-color: #0d1a26;
-            --secondary-color: #A34343;
-            --accent-color: #ff9800;
-            --text-light: #f5f5f5;
-            --text-dark: #1f1f1f;
-            --background-dark: #0A0A0A;
-            --background-light: #f4f7f9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            background: var(--primary-color);
-            color: var(--text-light);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            color: var(--text-light);
-            height: 90vh;
-            display: flex;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सरकारी नौकरी की तैयारी + कमाई का पक्का मौका!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #28a745;
+      --accent-color: #FFC107;
+      --bg-color-light: #F8F9FA;
+      --text-color-dark: #343A40;
+      --card-bg: #FFFFFF;
+      --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
+      --shadow-premium: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: linear-gradient(135deg, var(--bg-color-light), #E9ECEF);
+      color: var(--text-color-dark);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .header-section {
+      position: relative;
+      text-align: center;
+      padding: 5rem 1rem;
+      background: linear-gradient(135deg, var(--primary-color), #0056b3);
+      color: white;
+      border-radius: 0 0 3rem 3rem;
+      box-shadow: var(--shadow-premium);
+      overflow: hidden;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease-in-out, visibility 1s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .slide h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+    .slide p {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .slide .highlight {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      color: var(--accent-color);
+    }
+    .cta-button {
+      background-color: var(--accent-color);
+      color: var(--text-color-dark);
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+      box-shadow: var(--shadow-medium);
+    }
+    .cta-button:hover {
+      background-color: #FFB300;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+    .slider-nav {
+      position: absolute;
+      top: auto;
+      bottom: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      transform: none;
+      padding: 0 1rem;
+    }
+    .prev-btn, .next-btn {
+      background: rgba(255, 255, 255, 0.2);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50%;
+      margin: 0 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .prev-btn:hover, .next-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+      position: relative;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        margin: 1rem auto 0;
+        border-radius: 2px;
+    }
+    .courses-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .course-card {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-light);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      border: 1px solid #E9ECEF;
+      cursor: pointer;
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .course-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .course-card p {
+      color: var(--text-color-dark);
+      font-size: 0.95rem;
+    }
+    .floating-wallet-btn, .floating-salary-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      z-index: 999;
+    }
+    .floating-salary-btn {
+      right: 2rem;
+      bottom: 7rem;
+      background-color: var(--primary-color);
+    }
+    .floating-wallet-btn:hover, .floating-salary-btn:hover {
+      transform: translateY(-5px);
+      background-color: #218838;
+    }
+    .floating-salary-btn:hover {
+        background-color: #0056b3;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: var(--card-bg);
+      margin: 15% auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-premium);
+      max-width: 600px;
+      position: relative;
+      text-align: center;
+    }
+    .close-btn {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .final-cta-section {
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .price-box {
+        background: var(--card-bg);
+        border: 4px solid var(--accent-color);
+        border-radius: 2rem;
+        padding: 2rem;
+        max-width: 500px;
+        margin: 2rem auto;
+        box-shadow: var(--shadow-premium);
+        animation: pulse 2s infinite;
+    }
+    .price-box p {
+        font-size: 1.5rem;
+        color: #6c757d;
+    }
+    .price {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 1rem 0;
+    }
+    .price s {
+      font-size: 2rem;
+      color: #adb5bd;
+      margin-right: 1.5rem;
+    }
+    .purchase-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-medium);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ced4da;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-group input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    }
+    .form-submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .form-submit-btn:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+    .payment-status {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+    .payment-status.success {
+      color: var(--secondary-color);
+    }
+    .payment-status.error {
+      color: var(--accent-color);
+    }
+    .payment-status.processing {
+      color: var(--primary-color);
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+        70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+    }
+    
+    @media (max-width: 768px) {
+        .earning-box {
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
         }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        .earning-item {
+            min-width: unset;
         }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .whatsapp-hero-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: #25D366;
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .whatsapp-hero-button i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-        }
-        .whatsapp-hero-button:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-        }
-
-        /* --- Main Content Sections --- */
-        .container {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-heading {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .card-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .card-content p {
-            font-size: 1rem;
-            color: var(--text-dark);
-        }
-
-        /* --- Gallery Section --- */
-        .gallery {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .gallery-container {
-            display: flex;
-            overflow-x: scroll;
-            scroll-behavior: smooth;
-            gap: 1.5rem;
-            padding-bottom: 1.5rem;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .gallery-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .gallery-item {
-            min-width: 350px;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- WhatsApp Floating Button --- */
-        .whatsapp-float {
-            position: fixed;
-            width: 70px;
-            height: 70px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            .section-heading {
-                font-size: 2.5rem;
-            }
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
-                font-size: 30px;
-            }
-        }
-    </style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Strand Rayan</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#bar">Bar</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="header-section">
+    <div class="slide active" id="slide1">
+      <h1>सिर्फ ₹500 से हर महीने ₹20,000 तक कमाएँ!</h1>
+      <p>सरकारी नौकरी की तैयारी के साथ-साथ शानदार कमाई का मौका।</p>
+      <p class="highlight">आज ही जुड़ें और अपनी कमाई शुरू करें!</p>
+      <a href="#purchase-section" class="cta-button">अभी ₹500 में जॉइन करें 👉</a>
+    </div>
 
-    <main>
-        <section class="hero" id="home">
-            <h1>Strand Rayan</h1>
-            <p>Where luxury and exceptional experiences meet. The new trend in Etawah.</p>
-            <a href="https://wa.me/8279608163?text=Hello%2C%20I%20am%20interested%20in%20a%20booking.%20Please%20provide%20me%20with%20more%20details." class="whatsapp-hero-button">
-                <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-            </a>
-        </section>
+    <div class="slide" id="slide2">
+      <h1>अपनी टीम बनाएं और हर महीने ₹20,000 से ₹40,000 तक फिक्स्ड सैलरी पाएं!</h1>
+      <p>सिर्फ 50 लोगों की टीम पर ₹20,000 और 100 लोगों की टीम पर ₹40,000 मासिक सैलरी पाएं।</p>
+      <p class="highlight">स्थिर आय का शानदार अवसर!</p>
+      <a href="#purchase-section" class="cta-button">टीम बनाना शुरू करें 👉</a>
+    </div>
 
-        <section class="container" id="rooms">
-            <h2 class="section-heading">Our Rooms</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Experience the perfect blend of style and comfort. Stay in our rooms with great amenities.</p>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1618773959110-246d6b8ac6d2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Room Interior 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Luxury Suite</h3>
-                        <p>Enjoy our spacious luxury suites with modern amenities and a beautiful view.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1582467459573-6f577cd4975a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Room Interior 2" class="card-image">
-                    <div class="card-content">
-                        <h3>Luxury Suite Details</h3>
-                        <p>Experience premium comfort with king-size beds and elegant decor.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1596436889140-5a025642a865?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deluxe Room Interior 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Deluxe Room</h3>
-                        <p>Our deluxe rooms offer a perfect blend of comfort and elegance for a relaxing stay.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deluxe Room Interior 2" class="card-image">
-                    <div class="card-content">
-                        <h3>Deluxe Room View</h3>
-                        <p>Enjoy city views and comfortable seating areas in our deluxe rooms.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Standard Room Interior 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Standard Room</h3>
-                        <p>Cozy and comfortable, our standard rooms provide everything you need for a pleasant night.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1616588589676-62300e5c374b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Standard Room Interior 2" class="card-image">
-                    <div class="card-content">
-                        <h3>Standard Room Amenities</h3>
-                        <p>Functional and well-appointed, perfect for a comfortable stay.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="slide" id="slide3">
+      <h1>आज ही पाएं ₹1000 का डिस्काउंट और एक प्रीमियम ई-बुक बिल्कुल मुफ्त!</h1>
+      <p>पहले 100 ग्राहकों के लिए विशेष ऑफर।</p>
+      <p class="highlight">जल्दी करें, ऑफर सीमित समय के लिए!</p>
+      <a href="#purchase-section" class="cta-button">अभी लाभ उठाएं 👉</a>
+    </div>
 
-        <section class="container" id="bar">
-            <h2 class="section-heading">Our Bar & Restaurant</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Enjoy delicious food and a wide selection of drinks in a vibrant and trendy atmosphere.</p>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1617711467554-15f10668f44d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bar Interior 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Bar Area</h3>
-                        <p>Relax at our stylish bar and enjoy expertly crafted cocktails and fine spirits.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1534430662200-3678620a9733?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bar Counter" class="card-image">
-                    <div class="card-content">
-                        <h3>Bar Counter</h3>
-                        <p>Watch our skilled bartenders create your favorite drinks.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1550541768-450f61d02c5f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Interior 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Restaurant Dining Hall</h3>
-                        <p>Dine with family and friends in our elegant restaurant with a diverse menu.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1470167049808-99086fa5b835?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Table Setting" class="card-image">
-                    <div class="card-content">
-                        <h3>Elegant Table Setting</h3>
-                        <p>Enjoy a fine dining experience with our carefully arranged table settings.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1555543788-b22301c40b8a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Outdoor Seating 1" class="card-image">
-                    <div class="card-content">
-                        <h3>Outdoor Seating</h3>
-                        <p>Enjoy the weather and our outdoor ambiance for a perfect dining experience.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1604288988676-49547899fa6f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Outdoor Bar Area" class="card-image">
-                    <div class="card-content">
-                        <h3>Outdoor Bar</h3>
-                        <p>Sip your drinks in our relaxed outdoor bar setting.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="slider-nav">
+      <button class="prev-btn">‹</button>
+      <button class="next-btn">›</button>
+    </div>
+  </div>
 
-        <section class="gallery" id="gallery">
-            <h2 class="section-heading">Photo Gallery</h2>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1549488344-9f4a0a194ed8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1543884399-5285311f44e1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517840134446-c73400569768?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11277688?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1625220194771-7df7c6b5b814?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 7">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 8">
-                </div>
-            </div>
-        </section>
-    </main>
+  <div class="container courses-section">
+    <h2 class="section-title">हमारे टॉप सेलिंग सरकारी नौकरी कोर्सेज</h2>
+    <div class="course-grid">
+      <div class="course-card" data-price="500">
+        <h3>1. UP Police Constable</h3>
+        <p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी के लिए एक संपूर्ण कोर्स।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>2. Railway Exams (RRB)</h3>
+        <p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं के लिए स्पेशल तैयारी।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>3. SSC CGL (Combined Graduate Level)</h3>
+        <p>SSC CGL के लिए गणित, रिज़निंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>4. SSC CHSL (10+2)</h3>
+        <p>12वीं पास छात्रों के लिए SSC CHSL परीक्षा का पूरा गाइड।</p>
+      </div>
+      <div class="course-card" data-price="5000">
+        <h3>5. Banking Exams (IBPS, SBI)</h3>
+        <p>बैंकिंग PO और क्लर्क परीक्षाओं के लिए मास्टरक्लास।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>6. All India Police Exams</h3>
+        <p>सभी राज्यों की पुलिस कांस्टेबल परीक्षाओं की संयुक्त तैयारी।</p>
+      </div>
+       <div class="course-card" data-price="5000">
+        <h3>7. Defence Exams</h3>
+        <p>भारतीय वायु सेना और नौसेना में भर्ती के लिए तैयारी।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>8. Patwari Exams</h3>
+        <p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p>
+      </div>
+      <div class="course-card" data-price="500">
+        <h3>9. Forest Guard Exams</h3>
+        <p>वन रक्षक परीक्षा के लिए लिखित परीक्षा और फिजिकल टेस्ट की तैयारी।</p>
+      </div>
+      <div class="course-card" data-price="5000">
+        <h3>10. TET & CTET Exams</h3>
+        <p>शिक्षक पात्रता परीक्षाओं (TET, CTET) की पूरी तैयारी।</p>
+      </div>
+    </div>
+  </div>
 
-    <a href="https://wa.me/8279608163?text=Hello%2C%20I%20am%20interested%20in%20a%20booking.%20Please%20provide%20me%20with%20more%20details." class="whatsapp-float">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+  <div class="container final-cta-section" id="purchase-section">
+    <h2 class="section-title">इस ऑफर को हाथ से जाने न दें!</h2>
+    <div class="price-box">
+        <p>सिर्फ़ आज के लिए</p>
+        <p class="price" id="purchase-price"><s>₹1500</s> ₹500</p>
+    </div>
+    <form class="purchase-form" id="payment-form">
+      <p style="margin-bottom: 2rem; text-align: center; color: #6c757d;" id="form-title">अपना विवरण भरें और पेमेंट पूरा करें</p>
+      <div class="form-group">
+        <input type="text" id="name" placeholder="अपना पूरा नाम" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="phone" placeholder="मोबाइल नंबर" required>
+      </div>
+      <input type="hidden" id="selected-price" name="price" value="500">
+      <button type="submit" class="form-submit-btn" id="submit-btn">हाँ, मुझे अपना भविष्य बनाना है! ₹500 में खरीदें।</button>
+      <div class="payment-status" id="status-message"></div>
+    </form>
+  </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="logo">Strand Rayan</div>
-            <p>Vijaynagar Road, Friends Colony, Near Indian Bank, Etawah, Uttar Pradesh</p>
-            <p>Monday - Sunday: 10 AM to 11 PM</p>
-            <p>Phone: +91 8279608163 | Email: info@strandrayan.com</p>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            </div>
+  <div id="upi-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-upi-modal">&times;</span>
+      <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">UPI पेमेंट करें</h3>
+      <p style="margin-top: 1rem; font-size: 1.2rem;">
+        इस UPI ID पर <span id="upi-modal-price" style="font-weight: bold; color: var(--secondary-color);">₹500</span> भेजें
+      </p>
+      <div style="background-color: #f1f1f1; padding: 1rem; border-radius: 0.5rem; margin: 1.5rem 0;">
+        <p style="font-size: 1.4rem; font-weight: bold; word-break: break-all;">
+          <span id="dummy-upi-id">user@upi</span>
+        </p>
+        <button onclick="copyUpiId()" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background-color: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+          कॉपी करें
+        </button>
+      </div>
+      <form id="upi-form">
+        <div class="form-group">
+          <input type="text" id="upi-utr" placeholder="पेमेंट के बाद UTR नंबर डालें" required>
         </div>
-        <p style="margin-top: 1rem;">&copy; 2025 Strand Rayan. All Rights Reserved.</p>
-    </footer>
+        <button type="submit" class="form-submit-btn" style="background-color: var(--secondary-color);">पेमेंट वेरीफाई करें</button>
+      </form>
+      <div class="payment-status" id="upi-status-message" style="margin-top: 1rem;"></div>
+    </div>
+  </div>
 
+  <button class="floating-wallet-btn" id="open-wallet-btn">
+    💰 मेरा वॉलेट
+  </button>
+
+  <button class="floating-salary-btn" id="open-salary-btn">
+    💸 मेरी सैलरी
+  </button>
+
+  <div id="wallet-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-wallet-modal">&times;</span>
+        <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">मेरा वॉलेट</h3>
+        <div style="text-align: center; margin: 2rem 0;">
+            <p style="font-size: 1.2rem; color: #6c757d;">आपका कुल बैलेंस:</p>
+            <p id="total-balance" style="font-size: 3rem; font-weight: bold; color: var(--secondary-color);">₹0</p>
+        </div>
+        
+        <h4 style="color: var(--primary-color); font-family: 'Poppins', sans-serif; margin-bottom: 1rem;">आपकी कमाई का ब्यौरा</h4>
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
+                <p style="font-weight: bold;">लेवल 1 कमाई:</p>
+                <p id="level1-earnings">₹0</p>
+            </li>
+            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
+                <p style="font-weight: bold;">लेवल 2 कमाई:</p>
+                <p id="level2-earnings">₹0</p>
+            </li>
+            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; border-radius: 0.5rem;">
+                <p style="font-weight: bold;">लेवल 3 कमाई:</p>
+                <p id="level3-earnings">₹0</p>
+            </li>
+        </ul>
+        
+        <button id="withdraw-btn" class="form-submit-btn" style="width: 100%; margin-top: 2rem;">पैसे निकालें</button>
+    </div>
+</div>
+
+<div id="salary-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-salary-modal">&times;</span>
+        <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">मेरी सैलरी</h3>
+        <div style="text-align: center; margin: 2rem 0;">
+            <p style="font-size: 1.2rem; color: #6c757d;">आपकी वर्तमान फिक्स्ड सैलरी:</p>
+            <p id="current-salary" style="font-size: 3rem; font-weight: bold; color: var(--secondary-color);">₹0</p>
+        </div>
+        <p style="font-size: 1.1rem; color: #6c757d; text-align: center; margin-bottom: 1rem;">अपनी टीम बनाकर फिक्स्ड सैलरी पाएँ:</p>
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
+                <p style="font-weight: bold;">50 लोगों की टीम:</p>
+                <p>₹20,000 मासिक फिक्स्ड सैलरी</p>
+            </li>
+            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; border-radius: 0.5rem;">
+                <p style="font-weight: bold;">100 लोगों की टीम:</p>
+                <p>₹40,000 मासिक फिक्स्ड सैलरी</p>
+            </li>
+        </ul>
+    </div>
+</div>
+  
+<script>
+   const slider = document.querySelector('.header-section');
+   const slides = document.querySelectorAll('.slide');
+   const prevBtn = document.querySelector('.prev-btn');
+   const nextBtn = document.querySelector('.next-btn');
+   let currentIndex = 0;
+   let intervalId;
+   const slideDelay = 6000; // 6 सेकंड का डिले
+
+   function showSlide(index) {
+     slides.forEach(slide => {
+       slide.classList.remove('active');
+     });
+     slides[(index + slides.length) % slides.length].classList.add('active');
+   }
+
+   function nextSlide() {
+     currentIndex++;
+     showSlide(currentIndex);
+   }
+
+   function prevSlide() {
+     currentIndex--;
+     showSlide(currentIndex);
+   }
+
+   function startAutoSlide() {
+     intervalId = setInterval(nextSlide, slideDelay);
+   }
+
+   function stopAutoSlide() {
+     clearInterval(intervalId);
+   }
+
+   nextBtn.addEventListener('click', () => {
+     stopAutoSlide();
+     nextSlide();
+     startAutoSlide();
+   });
+
+   prevBtn.addEventListener('click', () => {
+     stopAutoSlide();
+     prevSlide();
+     startAutoSlide();
+   });
+
+   startAutoSlide();
+
+   // Course card click handler
+   const courseCards = document.querySelectorAll('.course-card');
+   const purchasePrice = document.getElementById('purchase-price');
+   const selectedPriceInput = document.getElementById('selected-price');
+   const formTitle = document.getElementById('form-title');
+   const submitBtn = document.getElementById('submit-btn');
+
+   courseCards.forEach(card => {
+     card.addEventListener('click', () => {
+       const price = card.getAttribute('data-price');
+       if (price === '500') {
+         purchasePrice.innerHTML = <s>₹1500</s> ₹500;
+         selectedPriceInput.value = '500';
+         formTitle.innerText = 'अपना विवरण भरें और ₹500 का पेमेंट पूरा करें';
+         submitBtn.innerText = 'हाँ, मुझे अपना भविष्य बनाना है! ₹500 में खरीदें।';
+         document.getElementById('upi-modal-price').innerText = '₹500';
+       } else if (price === '5000') {
+         purchasePrice.innerHTML = <s>₹10000</s> ₹5000;
+         selectedPriceInput.value = '5000';
+         formTitle.innerText = 'अपना विवरण भरें और ₹5000 का पेमेंट पूरा करें';
+         submitBtn.innerText = 'हाँ, मुझे प्रीमियम कोर्स खरीदना है! ₹5000 में खरीदें।';
+         document.getElementById('upi-modal-price').innerText = '₹5000';
+       }
+       document.getElementById('purchase-section').scrollIntoView({ behavior: 'smooth' });
+     });
+   });
+
+   // UPI Modal functionality
+   const upiModal = document.getElementById('upi-modal');
+   const closeUpiModalBtn = document.getElementById('close-upi-modal');
+   const paymentForm = document.getElementById('payment-form');
+   const upiForm = document.getElementById('upi-form');
+   const upiStatusMessage = document.getElementById('upi-status-message');
+   
+   paymentForm.addEventListener('submit', (e) => {
+     e.preventDefault();
+     upiModal.style.display = 'flex';
+   });
+
+   closeUpiModalBtn.addEventListener('click', () => {
+     upiModal.style.display = 'none';
+   });
+
+   window.addEventListener('click', (event) => {
+     if (event.target == upiModal) {
+       upiModal.style.display = 'none';
+     }
+   });
+
+   function copyUpiId() {
+     const upiId = document.getElementById('dummy-upi-id').innerText;
+     navigator.clipboard.writeText(upiId).then(() => {
+       alert('UPI ID कॉपी हो गई!');
+     }).catch(err => {
+       console.error('कॉपी करने में विफल रहा: ', err);
+     });
+   }
+   
+   // This is a dummy function. In a real scenario, you would verify the UTR with your payment gateway.
+   upiForm.addEventListener('submit', (e) => {
+     e.preventDefault();
+     const utr = document.getElementById('upi-utr').value;
+     upiStatusMessage.style.display = 'block';
+     upiStatusMessage.className = 'payment-status processing';
+     upiStatusMessage.innerText = 'पेमेंट वेरीफाई हो रहा है...';
+
+     setTimeout(() => {
+       if (utr && utr.length > 5) { // Simple validation
+         upiStatusMessage.className = 'payment-status success';
+         upiStatusMessage.innerText = 'पेमेंट सफलतापूर्वक वेरीफाई हो गया! आपका कोर्स एक्टिवेट हो गया है।';
+         upiForm.reset();
+       } else {
+         upiStatusMessage.className = 'payment-status error';
+         upiStatusMessage.innerText = 'गलत UTR नंबर। कृपया पुनः प्रयास करें।';
+       }
+     }, 2000);
+   });
+
+   // Wallet functionality
+   const walletModal = document.getElementById('wallet-modal');
+   const openWalletBtn = document.getElementById('open-wallet-btn');
+   const closeWalletModalBtn = document.getElementById('close-wallet-modal');
+
+   const userWallet = {
+       totalBalance: 2500,
+       level1: 1500,
+       level2: 750,
+       level3: 250
+   };
+
+   function updateWalletUI() {
+       document.getElementById('total-balance').innerText = ₹${userWallet.totalBalance};
+       document.getElementById('level1-earnings').innerText = ₹${userWallet.level1};
+       document.getElementById('level2-earnings').innerText = ₹${userWallet.level2};
+       document.getElementById('level3-earnings').innerText = ₹${userWallet.level3};
+   }
+
+   openWalletBtn.addEventListener('click', () => {
+       updateWalletUI();
+       walletModal.style.display = 'flex';
+   });
+
+   closeWalletModalBtn.addEventListener('click', () => {
+       walletModal.style.display = 'none';
+   });
+
+   window.addEventListener('click', (event) => {
+       if (event.target === walletModal) {
+           walletModal.style.display = 'none';
+       }
+   });
+
+   const withdrawBtn = document.getElementById('withdraw-btn');
+   withdrawBtn.addEventListener('click', () => {
+       alert('Withdrawal request has been submitted. It will be processed shortly.');
+   });
+
+   // Salary functionality
+   const salaryModal = document.getElementById('salary-modal');
+   const openSalaryBtn = document.getElementById('open-salary-btn');
+   const closeSalaryModalBtn = document.getElementById('close-salary-modal');
+
+   openSalaryBtn.addEventListener('click', () => {
+       salaryModal.style.display = 'flex';
+   });
+
+   closeSalaryModalBtn.addEventListener('click', () => {
+       salaryModal.style.display = 'none';
+   });
+
+   window.addEventListener('click', (event) => {
+       if (event.target === salaryModal) {
+           salaryModal.style.display = 'none';
+       }
+   });
+</script>
 </body>
 </html>
