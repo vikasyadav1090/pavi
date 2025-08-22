@@ -1,719 +1,427 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>सरकारी नौकरी की तैयारी + कमाई का पक्का मौका!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Govt Exams Prep - Modern Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
   <style>
     :root {
-      --primary-color: #007BFF;
-      --secondary-color: #28a745;
-      --accent-color: #FFC107;
-      --bg-color-light: #F8F9FA;
-      --text-color-dark: #343A40;
-      --card-bg: #FFFFFF;
-      --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
-      --shadow-premium: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+      --primary-color: #0056b3;
+      --secondary-color: #FFC107;
+      --background-color: #f8f9fa;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --success-color: #28a745;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+
     body {
-      font-family: 'Noto Sans', sans-serif;
-      background: linear-gradient(135deg, var(--bg-color-light), #E9ECEF);
-      color: var(--text-color-dark);
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
     }
-    .container {
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(0, 20, 80, 0.7), rgba(20, 0, 60, 0.75));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero button {
+      padding: 14px 30px;
+      font-size: 18px;
+      background: var(--secondary-color);
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* --- Courses Section --- */
+    .courses {
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-    .header-section {
-      position: relative;
-      text-align: center;
-      padding: 5rem 1rem;
-      background: linear-gradient(135deg, var(--primary-color), #0056b3);
-      color: white;
-      border-radius: 0 0 3rem 3rem;
-      box-shadow: var(--shadow-premium);
-      overflow: hidden;
-      min-height: 450px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 1s ease-in-out, visibility 1s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-    .slide.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .slide h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-    .slide p {
-      font-size: 1.3rem;
-      margin-top: 0.5rem;
-      line-height: 1.5;
-    }
-    .slide .highlight {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      color: var(--accent-color);
-    }
-    .cta-button {
-      background-color: var(--accent-color);
-      color: var(--text-color-dark);
-      padding: 1rem 2.5rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      border-radius: 9999px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 2rem;
-      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
-      box-shadow: var(--shadow-medium);
-    }
-    .cta-button:hover {
-      background-color: #FFB300;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-    }
-    .slider-nav {
-      position: absolute;
-      top: auto;
-      bottom: 1rem;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      transform: none;
-      padding: 0 1rem;
-    }
-    .prev-btn, .next-btn {
-      background: rgba(255, 255, 255, 0.2);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.3rem 0.7rem;
-      border-radius: 50%;
-      margin: 0 0.5rem;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .prev-btn:hover, .next-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: scale(1.1);
-    }
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--primary-color);
-      position: relative;
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: var(--secondary-color);
-        margin: 1rem auto 0;
-        border-radius: 2px;
-    }
-    .courses-section {
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
     }
     .course-card {
-      background-color: var(--card-bg);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: var(--shadow-light);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       text-align: center;
-      border: 1px solid #E9ECEF;
-      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards;
     }
+    /* Staggered animation for course cards */
+    .course-card:nth-child(1) { animation-delay: 0.1s; }
+    .course-card:nth-child(2) { animation-delay: 0.2s; }
+    .course-card:nth-child(3) { animation-delay: 0.3s; }
+    .course-card:nth-child(4) { animation-delay: 0.4s; }
+    .course-card:nth-child(5) { animation-delay: 0.5s; }
+    .course-card:nth-child(6) { animation-delay: 0.6s; }
+    .course-card:nth-child(7) { animation-delay: 0.7s; }
+    .course-card:nth-child(8) { animation-delay: 0.8s; }
+    .course-card:nth-child(9) { animation-delay: 0.9s; }
+    .course-card:nth-child(10) { animation-delay: 1.0s; }
+
     .course-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 86, 179, 0.15);
     }
     .course-card h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 10px;
+      font-size: 18px;
     }
     .course-card p {
-      color: var(--text-color-dark);
-      font-size: 0.95rem;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
     }
-    .floating-wallet-btn, .floating-salary-btn {
+
+    /* --- Offer Section --- */
+    #offer-section {
+      text-align: center;
+      padding: 50px 20px;
+      background: var(--card-bg);
+      margin: 40px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .offer h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .offer p {
+      font-size: 18px;
+      color: #666;
+    }
+    .price {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+    .price del {
+      color: #999;
+      margin-right: 15px;
+      font-size: 22px;
+    }
+    .price span {
+      color: var(--success-color);
+      font-weight: bold;
+      font-size: 42px;
+    }
+    .buy-button {
+        padding: 15px 40px;
+        font-size: 20px;
+        background: linear-gradient(45deg, var(--success-color), #20c997);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        margin-top: 20px;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: pulse 2s infinite;
+    }
+    .buy-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        animation-play-state: paused;
+    }
+
+
+    /* --- Floating Buttons --- */
+    .floating-buttons {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--secondary-color);
-      color: white;
-      padding: 1rem 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 9999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       z-index: 999;
     }
-    .floating-salary-btn {
-      right: 2rem;
-      bottom: 7rem;
-      background-color: var(--primary-color);
+    .floating-buttons button {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .floating-wallet-btn:hover, .floating-salary-btn:hover {
-      transform: translateY(-5px);
-      background-color: #218838;
+    .floating-buttons button:hover {
+        transform: scale(1.05);
     }
-    .floating-salary-btn:hover {
-        background-color: #0056b3;
+    .salary-btn { background: #007bff; }
+    .wallet-btn { background: var(--success-color); }
+    .buy-now-float-btn {
+        background: var(--secondary-color);
+        color: #000;
+        font-size: 16px;
     }
+
+    /* --- Popup Modals --- */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      inset: 0;
+      background: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
     }
     .modal-content {
-      background-color: var(--card-bg);
-      margin: 15% auto;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow-premium);
-      max-width: 600px;
-      position: relative;
-      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 450px;
+      text-align: left;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      animation: scaleUp 0.3s ease-out;
     }
-    .close-btn {
-      color: #aaa;
-      position: absolute;
-      top: 10px;
-      right: 20px;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    .modal-header h3 {
+      margin: 0;
+      color: var(--primary-color);
+      font-size: 22px;
+    }
+    .close {
       font-size: 28px;
       font-weight: bold;
+      color: #aaa;
       cursor: pointer;
+      transition: color 0.2s ease;
     }
-    .final-cta-section {
-      text-align: center;
-      padding: 5rem 1rem;
+    .close:hover {
+        color: #333;
     }
-    .price-box {
-        background: var(--card-bg);
-        border: 4px solid var(--accent-color);
-        border-radius: 2rem;
-        padding: 2rem;
-        max-width: 500px;
-        margin: 2rem auto;
-        box-shadow: var(--shadow-premium);
-        animation: pulse 2s infinite;
+    .modal-content p {
+        font-size: 16px;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 12px 0;
     }
-    .price-box p {
-        font-size: 1.5rem;
+    .modal-content i {
+        color: var(--primary-color);
+        font-size: 20px;
+        width: 25px;
+        text-align: center;
+    }
+    .modal-content .highlight {
+        margin-top:20px;
+        padding: 10px;
+        background: #e9f5ff;
+        border-left: 4px solid var(--primary-color);
+        font-weight:bold;
+        color: #004085;
+    }
+    .modal-content hr {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 20px 0;
+    }
+    .modal-content .total-income {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .modal-content button.withdraw-btn {
+        margin-top: 15px;
+        width: 100%;
+        background: var(--primary-color);
+        color: white;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+    .modal-content button.withdraw-btn:hover {
+        background: #00459e;
+    }
+
+    /* --- Footer --- */
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        background: #e9ecef;
         color: #6c757d;
+        font-size: 14px;
     }
-    .price {
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin: 1rem 0;
+
+    /* --- Animations --- */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .price s {
-      font-size: 2rem;
-      color: #adb5bd;
-      margin-right: 1.5rem;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .purchase-form {
-      max-width: 500px;
-      margin: 2rem auto 0;
-      padding: 2rem;
-      background-color: var(--card-bg);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-medium);
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid #ced4da;
-      border-radius: 0.5rem;
-      font-size: 1.1rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .form-group input:focus {
-        outline: none;
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-    }
-    .form-submit-btn {
-      width: 100%;
-      padding: 1rem;
-      background-color: var(--secondary-color);
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .form-submit-btn:hover {
-      background-color: #218838;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    }
-    .payment-status {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      display: none;
-    }
-    .payment-status.success {
-      color: var(--secondary-color);
-    }
-    .payment-status.error {
-      color: var(--accent-color);
-    }
-    .payment-status.processing {
-      color: var(--primary-color);
+    @keyframes scaleUp {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
     @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
-        70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
-    }
-    
-    @media (max-width: 768px) {
-        .earning-box {
-            flex-direction: column;
-        }
-        .earning-item {
-            min-width: unset;
-        }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-  <div class="header-section">
-    <div class="slide active" id="slide1">
-      <h1>सिर्फ ₹500 से हर महीने ₹20,000 तक कमाएँ!</h1>
-      <p>सरकारी नौकरी की तैयारी के साथ-साथ शानदार कमाई का मौका।</p>
-      <p class="highlight">आज ही जुड़ें और अपनी कमाई शुरू करें!</p>
-      <a href="#purchase-section" class="cta-button">अभी ₹500 में जॉइन करें 👉</a>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>सिर्फ ₹500 से शुरू करें और हर महीने ₹20,000 से ₹40,000 तक कमाएँ!</h1>
+      <button onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+        कोर्स देखें
+      </button>
     </div>
+  </section>
 
-    <div class="slide" id="slide2">
-      <h1>अपनी टीम बनाएं और हर महीने ₹20,000 से ₹40,000 तक फिक्स्ड सैलरी पाएं!</h1>
-      <p>सिर्फ 50 लोगों की टीम पर ₹20,000 और 100 लोगों की टीम पर ₹40,000 मासिक सैलरी पाएं।</p>
-      <p class="highlight">स्थिर आय का शानदार अवसर!</p>
-      <a href="#purchase-section" class="cta-button">टीम बनाना शुरू करें 👉</a>
-    </div>
+  <section id="courses" class="courses">
+    <div class="course-card"><h3>1. UP Police Constable</h3><p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी।</p></div>
+    <div class="course-card"><h3>2. Railway Exams (RRB)</h3><p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं की तैयारी।</p></div>
+    <div class="course-card"><h3>3. SSC CGL</h3><p>गणित, रीजनिंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p></div>
+    <div class="course-card"><h3>4. SSC CHSL (10+2)</h3><p>12वीं पास छात्रों के लिए SSC CHSL परीक्षा का गाइड।</p></div>
+    <div class="course-card"><h3>5. Banking Exams</h3><p>IBPS, SBI PO और Clerk परीक्षाओं के लिए मास्टरक्लास।</p></div>
+    <div class="course-card"><h3>6. All India Police Exams</h3><p>सभी राज्यों की पुलिस कांस्टेबल परीक्षा तैयारी।</p></div>
+    <div class="course-card"><h3>7. Defence Exams</h3><p>भारतीय वायु सेना और नौसेना भर्ती की तैयारी।</p></div>
+    <div class="course-card"><h3>8. Patwari Exams</h3><p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p></div>
+    <div class="course-card"><h3>9. Forest Guard Exams</h3><p>वन रक्षक परीक्षा और फिजिकल टेस्ट की तैयारी।</p></div>
+    <div class="course-card"><h3>10. TET & CTET Exams</h3><p>शिक्षक पात्रता परीक्षा (TET, CTET) की पूरी तैयारी।</p></div>
+  </section>
 
-    <div class="slide" id="slide3">
-      <h1>आज ही पाएं ₹1000 का डिस्काउंट और एक प्रीमियम ई-बुक बिल्कुल मुफ्त!</h1>
-      <p>पहले 100 ग्राहकों के लिए विशेष ऑफर।</p>
-      <p class="highlight">जल्दी करें, ऑफर सीमित समय के लिए!</p>
-      <a href="#purchase-section" class="cta-button">अभी लाभ उठाएं 👉</a>
-    </div>
+  <section id="offer-section" class="offer">
+    <h2>इस ऑफर को हाथ से जाने न दें!</h2>
+    <p>यह एक सीमित समय का ऑफर है</p>
+    <div class="price"><del>₹1500</del> <span>₹500</span></div>
+    <button class="buy-button">अभी खरीदें!</button>
+  </section>
 
-    <div class="slider-nav">
-      <button class="prev-btn">‹</button>
-      <button class="next-btn">›</button>
-    </div>
+  <div class="floating-buttons">
+    <button class="salary-btn" onclick="openModal('salaryModal')"><i class="fa-solid fa-sack-dollar"></i> मेरी सैलरी</button>
+    <button class="wallet-btn" onclick="openModal('walletModal')"><i class="fa-solid fa-wallet"></i> मेरा वॉलेट</button>
+    <button class="buy-now-float-btn" onclick="document.getElementById('offer-section').scrollIntoView({behavior:'smooth'})">
+        <i class="fa-solid fa-bolt"></i> अभी खरीदें
+    </button>
   </div>
 
-  <div class="container courses-section">
-    <h2 class="section-title">हमारे टॉप सेलिंग सरकारी नौकरी कोर्सेज</h2>
-    <div class="course-grid">
-      <div class="course-card" data-price="500">
-        <h3>1. UP Police Constable</h3>
-        <p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी के लिए एक संपूर्ण कोर्स।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>2. Railway Exams (RRB)</h3>
-        <p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं के लिए स्पेशल तैयारी।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>3. SSC CGL (Combined Graduate Level)</h3>
-        <p>SSC CGL के लिए गणित, रिज़निंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>4. SSC CHSL (10+2)</h3>
-        <p>12वीं पास छात्रों के लिए SSC CHSL परीक्षा का पूरा गाइड।</p>
-      </div>
-      <div class="course-card" data-price="5000">
-        <h3>5. Banking Exams (IBPS, SBI)</h3>
-        <p>बैंकिंग PO और क्लर्क परीक्षाओं के लिए मास्टरक्लास।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>6. All India Police Exams</h3>
-        <p>सभी राज्यों की पुलिस कांस्टेबल परीक्षाओं की संयुक्त तैयारी।</p>
-      </div>
-       <div class="course-card" data-price="5000">
-        <h3>7. Defence Exams</h3>
-        <p>भारतीय वायु सेना और नौसेना में भर्ती के लिए तैयारी।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>8. Patwari Exams</h3>
-        <p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p>
-      </div>
-      <div class="course-card" data-price="500">
-        <h3>9. Forest Guard Exams</h3>
-        <p>वन रक्षक परीक्षा के लिए लिखित परीक्षा और फिजिकल टेस्ट की तैयारी।</p>
-      </div>
-      <div class="course-card" data-price="5000">
-        <h3>10. TET & CTET Exams</h3>
-        <p>शिक्षक पात्रता परीक्षाओं (TET, CTET) की पूरी तैयारी।</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container final-cta-section" id="purchase-section">
-    <h2 class="section-title">इस ऑफर को हाथ से जाने न दें!</h2>
-    <div class="price-box">
-        <p>सिर्फ़ आज के लिए</p>
-        <p class="price" id="purchase-price"><s>₹1500</s> ₹500</p>
-    </div>
-    <form class="purchase-form" id="payment-form">
-      <p style="margin-bottom: 2rem; text-align: center; color: #6c757d;" id="form-title">अपना विवरण भरें और पेमेंट पूरा करें</p>
-      <div class="form-group">
-        <input type="text" id="name" placeholder="अपना पूरा नाम" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" id="phone" placeholder="मोबाइल नंबर" required>
-      </div>
-      <input type="hidden" id="selected-price" name="price" value="500">
-      <button type="submit" class="form-submit-btn" id="submit-btn">हाँ, मुझे अपना भविष्य बनाना है! ₹500 में खरीदें।</button>
-      <div class="payment-status" id="status-message"></div>
-    </form>
-  </div>
-
-  <div id="upi-modal" class="modal">
+  <div id="salaryModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" id="close-upi-modal">&times;</span>
-      <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">UPI पेमेंट करें</h3>
-      <p style="margin-top: 1rem; font-size: 1.2rem;">
-        इस UPI ID पर <span id="upi-modal-price" style="font-weight: bold; color: var(--secondary-color);">₹500</span> भेजें
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-sack-dollar"></i> आपकी सैलरी की जानकारी</h3>
+        <span class="close" onclick="closeModal('salaryModal')">&times;</span>
+      </div>
+      <p><i class="fa-solid fa-users"></i> 50 Users जोड़ने पर → <b>₹20,000 / महीना</b></p>
+      <p><i class="fa-solid fa-users"></i> 75 Users जोड़ने पर → <b>₹30,000 / महीना</b></p>
+      <p><i class="fa-solid fa-users"></i> 100 Users जोड़ने पर → <b>₹40,000 / महीना</b></p>
+      <p class="highlight">
+        💡 आपकी सैलरी हर महीने की 7 तारीख को आपके खाते में भेज दी जाएगी।
       </p>
-      <div style="background-color: #f1f1f1; padding: 1rem; border-radius: 0.5rem; margin: 1.5rem 0;">
-        <p style="font-size: 1.4rem; font-weight: bold; word-break: break-all;">
-          <span id="dummy-upi-id">user@upi</span>
-        </p>
-        <button onclick="copyUpiId()" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background-color: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
-          कॉपी करें
-        </button>
-      </div>
-      <form id="upi-form">
-        <div class="form-group">
-          <input type="text" id="upi-utr" placeholder="पेमेंट के बाद UTR नंबर डालें" required>
-        </div>
-        <button type="submit" class="form-submit-btn" style="background-color: var(--secondary-color);">पेमेंट वेरीफाई करें</button>
-      </form>
-      <div class="payment-status" id="upi-status-message" style="margin-top: 1rem;"></div>
     </div>
   </div>
 
-  <button class="floating-wallet-btn" id="open-wallet-btn">
-    💰 मेरा वॉलेट
-  </button>
-
-  <button class="floating-salary-btn" id="open-salary-btn">
-    💸 मेरी सैलरी
-  </button>
-
-  <div id="wallet-modal" class="modal">
+  <div id="walletModal" class="modal">
     <div class="modal-content">
-        <span class="close-btn" id="close-wallet-modal">&times;</span>
-        <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">मेरा वॉलेट</h3>
-        <div style="text-align: center; margin: 2rem 0;">
-            <p style="font-size: 1.2rem; color: #6c757d;">आपका कुल बैलेंस:</p>
-            <p id="total-balance" style="font-size: 3rem; font-weight: bold; color: var(--secondary-color);">₹0</p>
+        <div class="modal-header">
+            <h3><i class="fa-solid fa-wallet"></i> आपका वॉलेट बैलेंस</h3>
+            <span class="close" onclick="closeModal('walletModal')">&times;</span>
         </div>
-        
-        <h4 style="color: var(--primary-color); font-family: 'Poppins', sans-serif; margin-bottom: 1rem;">आपकी कमाई का ब्यौरा</h4>
-        <ul style="list-style-type: none; padding-left: 0;">
-            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
-                <p style="font-weight: bold;">लेवल 1 कमाई:</p>
-                <p id="level1-earnings">₹0</p>
-            </li>
-            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
-                <p style="font-weight: bold;">लेवल 2 कमाई:</p>
-                <p id="level2-earnings">₹0</p>
-            </li>
-            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; border-radius: 0.5rem;">
-                <p style="font-weight: bold;">लेवल 3 कमाई:</p>
-                <p id="level3-earnings">₹0</p>
-            </li>
-        </ul>
-        
-        <button id="withdraw-btn" class="form-submit-btn" style="width: 100%; margin-top: 2rem;">पैसे निकालें</button>
+        <p><i class="fa-solid fa-layer-group"></i> लेवल 1 इनकम: <b>₹0</b></p>
+        <p><i class="fa-solid fa-layer-group"></i> लेवल 2 इनकम: <b>₹0</b></p>
+        <p><i class="fa-solid fa-layer-group"></i> लेवल 3 इनकम: <b>₹0</b></p>
+        <p style="font-size: 13px; color: #777;">(यह इनकम आपके द्वारा रेफर किए गए यूजर्स से होती है)</p>
+        <hr>
+        <p class="total-income"><i class="fa-solid fa-coins"></i> कुल इनकम: <b>₹0</b></p>
+        <button class="withdraw-btn"><i class="fa-solid fa-money-bill-transfer"></i> पैसे निकालें</button>
     </div>
-</div>
+  </div>
 
-<div id="salary-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-salary-modal">&times;</span>
-        <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary-color);">मेरी सैलरी</h3>
-        <div style="text-align: center; margin: 2rem 0;">
-            <p style="font-size: 1.2rem; color: #6c757d;">आपकी वर्तमान फिक्स्ड सैलरी:</p>
-            <p id="current-salary" style="font-size: 3rem; font-weight: bold; color: var(--secondary-color);">₹0</p>
-        </div>
-        <p style="font-size: 1.1rem; color: #6c757d; text-align: center; margin-bottom: 1rem;">अपनी टीम बनाकर फिक्स्ड सैलरी पाएँ:</p>
-        <ul style="list-style-type: none; padding-left: 0;">
-            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; margin-bottom: 1rem; border-radius: 0.5rem;">
-                <p style="font-weight: bold;">50 लोगों की टीम:</p>
-                <p>₹20,000 मासिक फिक्स्ड सैलरी</p>
-            </li>
-            <li style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #aaa; border-radius: 0.5rem;">
-                <p style="font-weight: bold;">100 लोगों की टीम:</p>
-                <p>₹40,000 मासिक फिक्स्ड सैलरी</p>
-            </li>
-        </ul>
-    </div>
-</div>
-  
-<script>
-   const slider = document.querySelector('.header-section');
-   const slides = document.querySelectorAll('.slide');
-   const prevBtn = document.querySelector('.prev-btn');
-   const nextBtn = document.querySelector('.next-btn');
-   let currentIndex = 0;
-   let intervalId;
-   const slideDelay = 6000; // 6 सेकंड का डिले
+  <footer>
+    <p>&copy; 2025 Govt Exams Prep. All rights reserved.</p>
+  </footer>
 
-   function showSlide(index) {
-     slides.forEach(slide => {
-       slide.classList.remove('active');
-     });
-     slides[(index + slides.length) % slides.length].classList.add('active');
-   }
-
-   function nextSlide() {
-     currentIndex++;
-     showSlide(currentIndex);
-   }
-
-   function prevSlide() {
-     currentIndex--;
-     showSlide(currentIndex);
-   }
-
-   function startAutoSlide() {
-     intervalId = setInterval(nextSlide, slideDelay);
-   }
-
-   function stopAutoSlide() {
-     clearInterval(intervalId);
-   }
-
-   nextBtn.addEventListener('click', () => {
-     stopAutoSlide();
-     nextSlide();
-     startAutoSlide();
-   });
-
-   prevBtn.addEventListener('click', () => {
-     stopAutoSlide();
-     prevSlide();
-     startAutoSlide();
-   });
-
-   startAutoSlide();
-
-   // Course card click handler
-   const courseCards = document.querySelectorAll('.course-card');
-   const purchasePrice = document.getElementById('purchase-price');
-   const selectedPriceInput = document.getElementById('selected-price');
-   const formTitle = document.getElementById('form-title');
-   const submitBtn = document.getElementById('submit-btn');
-
-   courseCards.forEach(card => {
-     card.addEventListener('click', () => {
-       const price = card.getAttribute('data-price');
-       if (price === '500') {
-         purchasePrice.innerHTML = <s>₹1500</s> ₹500;
-         selectedPriceInput.value = '500';
-         formTitle.innerText = 'अपना विवरण भरें और ₹500 का पेमेंट पूरा करें';
-         submitBtn.innerText = 'हाँ, मुझे अपना भविष्य बनाना है! ₹500 में खरीदें।';
-         document.getElementById('upi-modal-price').innerText = '₹500';
-       } else if (price === '5000') {
-         purchasePrice.innerHTML = <s>₹10000</s> ₹5000;
-         selectedPriceInput.value = '5000';
-         formTitle.innerText = 'अपना विवरण भरें और ₹5000 का पेमेंट पूरा करें';
-         submitBtn.innerText = 'हाँ, मुझे प्रीमियम कोर्स खरीदना है! ₹5000 में खरीदें।';
-         document.getElementById('upi-modal-price').innerText = '₹5000';
-       }
-       document.getElementById('purchase-section').scrollIntoView({ behavior: 'smooth' });
-     });
-   });
-
-   // UPI Modal functionality
-   const upiModal = document.getElementById('upi-modal');
-   const closeUpiModalBtn = document.getElementById('close-upi-modal');
-   const paymentForm = document.getElementById('payment-form');
-   const upiForm = document.getElementById('upi-form');
-   const upiStatusMessage = document.getElementById('upi-status-message');
-   
-   paymentForm.addEventListener('submit', (e) => {
-     e.preventDefault();
-     upiModal.style.display = 'flex';
-   });
-
-   closeUpiModalBtn.addEventListener('click', () => {
-     upiModal.style.display = 'none';
-   });
-
-   window.addEventListener('click', (event) => {
-     if (event.target == upiModal) {
-       upiModal.style.display = 'none';
-     }
-   });
-
-   function copyUpiId() {
-     const upiId = document.getElementById('dummy-upi-id').innerText;
-     navigator.clipboard.writeText(upiId).then(() => {
-       alert('UPI ID कॉपी हो गई!');
-     }).catch(err => {
-       console.error('कॉपी करने में विफल रहा: ', err);
-     });
-   }
-   
-   // This is a dummy function. In a real scenario, you would verify the UTR with your payment gateway.
-   upiForm.addEventListener('submit', (e) => {
-     e.preventDefault();
-     const utr = document.getElementById('upi-utr').value;
-     upiStatusMessage.style.display = 'block';
-     upiStatusMessage.className = 'payment-status processing';
-     upiStatusMessage.innerText = 'पेमेंट वेरीफाई हो रहा है...';
-
-     setTimeout(() => {
-       if (utr && utr.length > 5) { // Simple validation
-         upiStatusMessage.className = 'payment-status success';
-         upiStatusMessage.innerText = 'पेमेंट सफलतापूर्वक वेरीफाई हो गया! आपका कोर्स एक्टिवेट हो गया है।';
-         upiForm.reset();
-       } else {
-         upiStatusMessage.className = 'payment-status error';
-         upiStatusMessage.innerText = 'गलत UTR नंबर। कृपया पुनः प्रयास करें।';
-       }
-     }, 2000);
-   });
-
-   // Wallet functionality
-   const walletModal = document.getElementById('wallet-modal');
-   const openWalletBtn = document.getElementById('open-wallet-btn');
-   const closeWalletModalBtn = document.getElementById('close-wallet-modal');
-
-   const userWallet = {
-       totalBalance: 2500,
-       level1: 1500,
-       level2: 750,
-       level3: 250
-   };
-
-   function updateWalletUI() {
-       document.getElementById('total-balance').innerText = ₹${userWallet.totalBalance};
-       document.getElementById('level1-earnings').innerText = ₹${userWallet.level1};
-       document.getElementById('level2-earnings').innerText = ₹${userWallet.level2};
-       document.getElementById('level3-earnings').innerText = ₹${userWallet.level3};
-   }
-
-   openWalletBtn.addEventListener('click', () => {
-       updateWalletUI();
-       walletModal.style.display = 'flex';
-   });
-
-   closeWalletModalBtn.addEventListener('click', () => {
-       walletModal.style.display = 'none';
-   });
-
-   window.addEventListener('click', (event) => {
-       if (event.target === walletModal) {
-           walletModal.style.display = 'none';
-       }
-   });
-
-   const withdrawBtn = document.getElementById('withdraw-btn');
-   withdrawBtn.addEventListener('click', () => {
-       alert('Withdrawal request has been submitted. It will be processed shortly.');
-   });
-
-   // Salary functionality
-   const salaryModal = document.getElementById('salary-modal');
-   const openSalaryBtn = document.getElementById('open-salary-btn');
-   const closeSalaryModalBtn = document.getElementById('close-salary-modal');
-
-   openSalaryBtn.addEventListener('click', () => {
-       salaryModal.style.display = 'flex';
-   });
-
-   closeSalaryModalBtn.addEventListener('click', () => {
-       salaryModal.style.display = 'none';
-   });
-
-   window.addEventListener('click', (event) => {
-       if (event.target === salaryModal) {
-           salaryModal.style.display = 'none';
-       }
-   });
-</script>
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    // Close modal if clicked outside the content area
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
