@@ -56,17 +56,7 @@
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 171, 0, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 10px 20px rgba(255, 171, 0, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 171, 0, 0); } }
         .fade-in { animation: fadeIn 1.5s ease-in-out forwards; }
         
-        /* New Hero Section Styles */
-        #hero {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white-color);
-            background: linear-gradient(rgba(74, 20, 140, 0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop') no-repeat center center/cover;
-            position: relative;
-        }
+        #hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; color: var(--white-color); background: linear-gradient(rgba(74, 20, 140, 0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop') no-repeat center center/cover; position: relative; }
         #hero .container { z-index: 2; }
         #hero h1 { font-size: 3.2rem; font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
         #hero h1 .highlight { color: var(--secondary-color); }
@@ -76,13 +66,10 @@
         .feature-item:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.2); }
         .feature-item i { color: var(--secondary-color); font-size: 2rem; margin-right: 10px; vertical-align: middle; }
         .feature-item span { font-size: 1.1rem; font-weight: 600; vertical-align: middle; }
-        
         .cta-button { display: inline-block; padding: 15px 35px; background: var(--gradient); color: var(--white-color); text-decoration: none; border-radius: 50px; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 1.1rem; }
         .cta-button:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
 
-        /* Courses Section */
         .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        /* Course Card Styling for Clickable Link */
         .course-card-link { display: block; text-decoration: none; color: inherit; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 8px; }
         .course-card { background: var(--white-color); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .course-card-link:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 8px 20px rgba(74, 20, 140, 0.15); }
@@ -90,12 +77,6 @@
         .course-price { font-size: 1.8rem; font-weight: bold; color: var(--secondary-color); margin: 1rem 0; }
         .buy-now-btn { background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-transform: uppercase; margin-top: 1rem; }
 
-        #offer { background: var(--primary-color); color: var(--white-color); text-align: center; }
-        #offer h2 { color: var(--white-color); }
-        .price span { font-size: 2.5rem; font-weight: bold; color: var(--secondary-color); }
-        .buy-button { padding: 15px 40px; border: none; border-radius: 50px; background: var(--gradient); color: var(--white-color); font-size: 1.2rem; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: pulse 2s infinite; }
-        
-        /* Testimonials & Other Sections (Same as before) */
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .testimonial-card { background: var(--white-color); padding: 2rem; border-left: 5px solid var(--secondary-color); border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
@@ -107,16 +88,23 @@
         .floating-buttons span { position: absolute; right: 70px; background: #333; color: white; padding: 5px 10px; border-radius: 5px; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
         .floating-buttons button:hover span, .floating-buttons a:hover span { opacity: 1; visibility: visible; }
         .buy-now-float { background: var(--gradient); }
+        
+        /* Modal Styles */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
         .modal { background: var(--white-color); padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.3); animation: fadeUp 0.4s ease; display: none; }
         .modal.active { display: block; }
-        .modal h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
-        .modal ul { list-style: none; padding-left: 0; }
-        .modal ul li { background: #f0f0f0; padding: 10px; margin-bottom: 8px; border-left: 3px solid var(--secondary-color); }
-        .close-button { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #888; }
-        footer { background: #333; color: var(--white-color); text-align: center; padding: 1.5rem 0; }
+        .modal h3 { color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; font-size: 1.8rem; }
+        .modal h3 i { color: var(--secondary-color); margin-right: 10px; }
+        .modal .close-button { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #aaa; transition: color 0.3s ease; }
+        .modal .close-button:hover { color: #333; }
+        .modal p { margin-bottom: 1rem; color: #555; }
+        .modal ul { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .modal ul li { display: flex; align-items: center; background: #f9f9f9; padding: 12px 15px; margin-bottom: 10px; border-radius: 5px; border-left: 4px solid var(--secondary-color); font-weight: 500; }
+        .modal ul li i { color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; width: 20px; text-align: center; }
+        .modal .info-box { text-align: center; background: #eef1f5; padding: 15px; border-left: 4px solid var(--primary-color); border-radius: 5px; margin-top: 20px; font-weight: bold; font-style: italic; color: #333; }
 
+        footer { background: #333; color: var(--white-color); text-align: center; padding: 1.5rem 0; }
         @media(max-width: 768px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 2rem; }
@@ -133,20 +121,10 @@
             <h1 class="fade-in">पढ़ाई के साथ <span class="highlight">कमाई का सुनहरा मौका!</span></h1>
             <p class="subtitle fade-in" style="animation-delay: 0.5s;">Start your online earning journey. रोज़ कमाएं ₹500 - ₹1000 तक और पाएं Fixed Monthly Income! अपनी Pocket Money खुद कमाएं।</p>
             <a href="#courses" class="cta-button fade-in" style="animation-delay: 1s;">आज ही कमाई शुरू करें <i class="fas fa-arrow-right"></i></a>
-
             <div class="hero-features fade-in" style="animation-delay: 1.5s;">
-                <div class="feature-item">
-                    <i class="fas fa-wallet"></i>
-                    <span>Daily Earning Bonus</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Fixed Monthly Salary</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-university"></i>
-                    <span>Direct Bank Transfer</span>
-                </div>
+                <div class="feature-item"><i class="fas fa-wallet"></i><span>Daily Earning Bonus</span></div>
+                <div class="feature-item"><i class="fas fa-calendar-alt"></i><span>Fixed Monthly Salary</span></div>
+                <div class="feature-item"><i class="fas fa-university"></i><span>Direct Bank Transfer</span></div>
             </div>
         </div>
     </header>
@@ -156,163 +134,32 @@
             <div class="container">
                 <h2>एक कोर्स चुनें और कमाई शुरू करें</h2>
                 <div class="courses-grid">
-                    
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=UP-Police-Course" class="course-card-link">
+                     <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=UP-Police-Course" class="course-card-link">
                         <div class="course-card">
-                            <div>
-                                <h3>1. UP Police Constable</h3>
-                                <p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
+                            <div><h3>1. UP Police Constable</h3><p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
                         </div>
                     </a>
-
                     <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Railway-Exams-Course" class="course-card-link">
                         <div class="course-card">
-                            <div>
-                                <h3>2. Railway Exams (RRB)</h3>
-                                <p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं की तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
+                            <div><h3>2. Railway Exams (RRB)</h3><p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं की तैयारी।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
                         </div>
                     </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CGL-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>3. SSC CGL</h3>
-                                <p>गणित, रीजनिंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CHSL-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>4. SSC CHSL (10+2)</h3>
-                                <p>प्रारंभिक छात्रों के लिए SSC CHSL परीक्षा का गाइड।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Banking-Exams-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>5. Banking Exams</h3>
-                                <p>IBPS, SBI PO और Clerk परीक्षाओं के लिए मास्टरक्लास।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=All-India-Police-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>6. All India Police Exams</h3>
-                                <p>सभी राज्यों की पुलिस कांस्टेबल परीक्षा तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Defence-Exams-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>7. Defence Exams</h3>
-                                <p>भारतीय वायु सेना और नौसेना भर्ती की तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Patwari-Exams-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>8. Patwari Exams</h3>
-                                <p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Forest-Guard-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>9. Forest Guard Exams</h3>
-                                <p>वन रक्षक परीक्षा और फिजिकल टेस्ट की तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=TET-CTET-Course" class="course-card-link">
-                        <div class="course-card">
-                             <div>
-                                <h3>10. TET & CTET Exams</h3>
-                                <p>शिक्षक पात्रता परीक्षा (TET, CTET) की पूरी तैयारी।</p>
-                            </div>
-                            <div>
-                                <div class="course-price">₹500</div>
-                                <div class="buy-now-btn">अभी खरीदें</div>
-                            </div>
-                        </div>
-                    </a>
-
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CGL-Course" class="course-card-link"><div class="course-card"><div><h3>3. SSC CGL</h3><p>गणित, रीजनिंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CHSL-Course" class="course-card-link"><div class="course-card"><div><h3>4. SSC CHSL (10+2)</h3><p>प्रारंभिक छात्रों के लिए SSC CHSL परीक्षा का गाइड।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Banking-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>5. Banking Exams</h3><p>IBPS, SBI PO और Clerk परीक्षाओं के लिए मास्टरक्लास।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=All-India-Police-Course" class="course-card-link"><div class="course-card"><div><h3>6. All India Police Exams</h3><p>सभी राज्यों की पुलिस कांस्टेबल परीक्षा तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Defence-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>7. Defence Exams</h3><p>भारतीय वायु सेना और नौसेना भर्ती की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Patwari-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>8. Patwari Exams</h3><p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Forest-Guard-Course" class="course-card-link"><div class="course-card"><div><h3>9. Forest Guard Exams</h3><p>वन रक्षक परीक्षा और फिजिकल टेस्ट की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=TET-CTET-Course" class="course-card-link"><div class="course-card"><div><h3>10. TET & CTET Exams</h3><p>शिक्षक पात्रता परीक्षा (TET, CTET) की पूरी तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
                 </div>
             </div>
         </section>
 
         <section id="testimonials">
-            <div class="container">
-                <h2>हमारे छात्र क्या कहते हैं</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p>"यह कोर्स मेरे करियर का टर्निंग पॉइंट था। बेहतरीन मेंटर्स!"</p>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <h4>- रिया शर्मा</h4>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"प्रोजेक्ट्स से बहुत कुछ सीखने को मिला। जॉब पाने में बहुत मदद मिली।"</p>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        <h4>- मोहन कुमार</h4>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"सबसे अच्छा ऑनलाइन लर्निंग प्लेटफॉर्म। मैं सबको रिकमेंड करूँगा।"</p>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <h4>- अंजलि वर्मा</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
     
     <div class="floating-buttons">
@@ -325,26 +172,53 @@
     <div class="modal-overlay" id="modalOverlay">
         
         <div class="modal" id="salaryModal">
-            </div>
+            <button class="close-button">&times;</button>
+            <h3><i class="fas fa-dollar-sign"></i>आपकी Monthly Salary</h3>
+            <p>आप जितने ज़्यादा यूज़र्स को अपने नेटवर्क में जोड़ेंगे, आपकी फिक्स्ड मंथली सैलरी उतनी ही बढ़ेगी।</p>
+            <ul>
+                <li><i class="fas fa-users"></i> 50 Users जोड़ने पर → <strong>₹20,000 / महीना</strong></li>
+                <li><i class="fas fa-users"></i> 75 Users जोड़ने पर → <strong>₹30,000 / महीना</strong></li>
+                <li><i class="fas fa-users"></i> 100 Users जोड़ने पर → <strong>₹40,000 / महीना</strong></li>
+            </ul>
+            <div class="info-box">आपकी सैलरी हर महीने की 7 तारीख को आपके खाते में भेज दी जाएगी।</div>
+        </div>
         
         <div class="modal" id="walletModal">
-            </div>
+            <button class="close-button">&times;</button>
+            <h3><i class="fas fa-wallet"></i>आपका वॉलेट बैलेंस</h3>
+            <p>यह आपकी रेफरल से होने वाली तुरंत कमाई है।</p>
+            <ul>
+                <li><i class="fas fa-layer-group"></i> लेवल 1 इनकम: <strong>₹0</strong></li>
+                <li><i class="fas fa-layer-group"></i> लेवल 2 इनकम: <strong>₹0</strong></li>
+                <li><i class="fas fa-layer-group"></i> लेवल 3 इनकम: <strong>₹0</strong></li>
+            </ul>
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            <p style="font-size: 1.5rem; text-align: center; color: var(--primary-color);">कुल इनकम: <strong style="color: var(--secondary-color);">₹0</strong></p>
+            <button class="cta-button" style="width: 100%; margin-top: 15px;">पैसे निकालें (Withdraw)</button>
+        </div>
         
         <div class="modal" id="referralModal">
-            </div>
-
+            <button class="close-button">&times;</button>
+            <h3><i class="fas fa-users"></i>रेफरल इनकम की जानकारी</h3>
+            <p>यह आपकी मासिक सैलरी के अलावा *अतिरिक्त कमाई* है, जो आपको हर जॉइनिंग पर तुरंत मिलती है।</p>
+            <ul>
+                <li><i class="fas fa-user-plus"></i> <strong>लेवल 1:</strong> आपके डायरेक्ट रेफरल पर <strong>₹150</strong> मिलेंगे।</li>
+                <li><i class="fas fa-user-friends"></i> <strong>लेवल 2:</strong> आपकी टीम के मेंबर जब किसी को जोड़ेंगे, तो आपको <strong>₹75</strong> मिलेंगे।</li>
+                <li><i class="fas fa-network-wired"></i> <strong>लेवल 3:</strong> लेवल 2 के मेंबर जब किसी को जोड़ेंगे, तो आपको <strong>₹25</strong> मिलेंगे।</li>
+            </ul>
+            <div class="info-box">यह बोनस तुरंत आपके वॉलेट में जुड़ जाता है, जिसे आप कभी भी निकाल सकते हैं।</div>
+        </div>
     </div>
-
     <footer>
         <p>&copy; <span id="copyright-year"></span> आपकी कंपनी का नाम. सभी अधिकार सुरक्षित।</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Modal Logic (No changes needed here, it remains the same)
             const modalTriggers = document.querySelectorAll('[data-modal-target]');
             const modalOverlay = document.getElementById('modalOverlay');
             const closeButtons = document.querySelectorAll('.close-button');
+            
             const openModal = (modalId) => {
                 const modal = document.getElementById(modalId);
                 if (modal && modalOverlay) {
@@ -352,21 +226,30 @@
                     modal.classList.add('active');
                 }
             };
+
             const closeModal = () => {
                 if (modalOverlay) {
                     modalOverlay.classList.remove('active');
                     document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
                 }
             };
-            modalTriggers.forEach(b => b.addEventListener('click', () => openModal(b.getAttribute('data-modal-target'))));
-            closeButtons.forEach(b => b.addEventListener('click', closeModal));
+
+            modalTriggers.forEach(b => {
+                b.addEventListener('click', () => openModal(b.getAttribute('data-modal-target')));
+            });
+
+            closeButtons.forEach(b => {
+                b.addEventListener('click', closeModal);
+            });
+
             if (modalOverlay) {
                 modalOverlay.addEventListener('click', (e) => {
-                    if (e.target === modalOverlay) closeModal();
+                    if (e.target === modalOverlay) {
+                        closeModal();
+                    }
                 });
             }
 
-            // SEO: Dynamically update copyright year
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
         });
     </script>
