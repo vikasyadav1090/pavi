@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Online Courses से Earning करें | Daily ₹1000 कमाएं | आपकी कंपनी का नाम</title>
+    <title>Online Law Courses से Earning करें | Daily ₹1000 कमाएं | आपकी कंपनी का नाम</title>
     
-    <meta name="description" content="Students के लिए Best Part-Time Earning Opportunity. हमारे Online Courses से सीखें और अपनी Monthly Income और Pocket Money बढ़ाएं। Start Earning Daily!">
+    <meta name="description" content="Law Students के लिए Best Part-Time Earning Opportunity. हमारे Online Law Courses से सीखें और अपनी Monthly Income और Pocket Money बढ़ाएं। Start Earning Daily!">
     
-    <meta name="keywords" content="online earning, monthly income, pocket money, daily earning, online course, work from home, student earning, paisa kaise kamaye, learn and earn, part-time job, fixed salary">
+    <meta name="keywords" content="law courses, online earning, monthly income, pocket money, daily earning, online course, work from home, student earning, paisa kaise kamaye, learn and earn, part-time job, fixed salary, judiciary coaching, CLAT prep">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -25,7 +25,7 @@
       "name": "आपकी कंपनी का नाम",
       "url": "आपकी वेबसाइट का URL",
       "logo": "आपकी वेबसाइट का लोगो URL",
-      "description": "हम ऑनलाइन कोर्सेज़ के माध्यम से छात्रों को सीखने और कमाने का अवसर प्रदान करते हैं। Part-time work for a fixed monthly income.",
+      "description": "हम ऑनलाइन लॉ कोर्सेज़ के माध्यम से छात्रों को सीखने और कमाने का अवसर प्रदान करते हैं। Part-time work for a fixed monthly income.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-XXX-XXX-XXXX",
@@ -51,6 +51,7 @@
         section { padding: 4rem 0; }
         h1, h2, h3 { line-height: 1.2; margin-bottom: 1rem; }
         h2 { text-align: center; font-size: 2.5rem; color: var(--primary-color); }
+        p { margin-bottom: 1rem; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 171, 0, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 10px 20px rgba(255, 171, 0, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 171, 0, 0); } }
@@ -77,11 +78,15 @@
         .course-price { font-size: 1.8rem; font-weight: bold; color: var(--secondary-color); margin: 1rem 0; }
         .buy-now-btn { background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-transform: uppercase; margin-top: 1rem; }
 
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .testimonial-card { background: var(--white-color); padding: 2rem; border-left: 5px solid var(--secondary-color); border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
-        .rating { color: #fdd835; margin-bottom: 1rem; }
-        .testimonial-card h4 { color: var(--primary-color); font-weight: bold; }
+        .policy-section { background-color: var(--white-color); border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 2rem; }
+        .policy-section h3 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .policy-section ul { list-style-position: inside; padding-left: 1rem; }
+
+        footer { background: #333; color: var(--white-color); text-align: center; padding: 1.5rem 0; }
+        .footer-links { margin-top: 1rem; }
+        .footer-links a { color: var(--secondary-color); text-decoration: none; margin: 0 15px; font-weight: 500; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--white-color); }
+
         .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
         .floating-buttons button, .floating-buttons a { background: var(--primary-color); color: var(--white-color); border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s ease; text-decoration: none; position: relative; }
         .floating-buttons button:hover, .floating-buttons a:hover { transform: scale(1.1); background: var(--secondary-color); }
@@ -89,7 +94,6 @@
         .floating-buttons button:hover span, .floating-buttons a:hover span { opacity: 1; visibility: visible; }
         .buy-now-float { background: var(--gradient); }
         
-        /* Modal Styles */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
         .modal { background: var(--white-color); padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.3); animation: fadeUp 0.4s ease; display: none; }
@@ -104,7 +108,6 @@
         .modal ul li i { color: var(--primary-color); font-size: 1.2rem; margin-right: 15px; width: 20px; text-align: center; }
         .modal .info-box { text-align: center; background: #eef1f5; padding: 15px; border-left: 4px solid var(--primary-color); border-radius: 5px; margin-top: 20px; font-weight: bold; font-style: italic; color: #333; }
 
-        footer { background: #333; color: var(--white-color); text-align: center; padding: 1.5rem 0; }
         @media(max-width: 768px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 2rem; }
@@ -134,32 +137,128 @@
             <div class="container">
                 <h2>एक कोर्स चुनें और कमाई शुरू करें</h2>
                 <div class="courses-grid">
-                     <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=UP-Police-Course" class="course-card-link">
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Judiciary-PCSJ-Course" class="course-card-link">
                         <div class="course-card">
-                            <div><h3>1. UP Police Constable</h3><p>यूपी पुलिस कांस्टेबल परीक्षा की पूरी तैयारी।</p></div>
+                            <div><h3>1. Judiciary Exams (PCS-J)</h3><p>सिविल जज (PCS-J) परीक्षा के लिए व्यापक तैयारी।</p></div>
                             <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
                         </div>
                     </a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Railway-Exams-Course" class="course-card-link">
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=CLAT-Prep-Course" class="course-card-link">
                         <div class="course-card">
-                            <div><h3>2. Railway Exams (RRB)</h3><p>RRB NTPC, Group D और अन्य रेलवे परीक्षाओं की तैयारी।</p></div>
+                            <div><h3>2. CLAT Preparation</h3><p>देश के टॉप लॉ विश्वविद्यालयों में प्रवेश के लिए तैयारी।</p></div>
                             <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
                         </div>
                     </a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CGL-Course" class="course-card-link"><div class="course-card"><div><h3>3. SSC CGL</h3><p>गणित, रीजनिंग, इंग्लिश और सामान्य ज्ञान की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=SSC-CHSL-Course" class="course-card-link"><div class="course-card"><div><h3>4. SSC CHSL (10+2)</h3><p>प्रारंभिक छात्रों के लिए SSC CHSL परीक्षा का गाइड।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Banking-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>5. Banking Exams</h3><p>IBPS, SBI PO और Clerk परीक्षाओं के लिए मास्टरक्लास।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=All-India-Police-Course" class="course-card-link"><div class="course-card"><div><h3>6. All India Police Exams</h3><p>सभी राज्यों की पुलिस कांस्टेबल परीक्षा तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Defence-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>7. Defence Exams</h3><p>भारतीय वायु सेना और नौसेना भर्ती की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Patwari-Exams-Course" class="course-card-link"><div class="course-card"><div><h3>8. Patwari Exams</h3><p>विभिन्न राज्यों में पटवारी और ग्राम सेवक परीक्षा की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Forest-Guard-Course" class="course-card-link"><div class="course-card"><div><h3>9. Forest Guard Exams</h3><p>वन रक्षक परीक्षा और फिजिकल टेस्ट की तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
-                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=TET-CTET-Course" class="course-card-link"><div class="course-card"><div><h3>10. TET & CTET Exams</h3><p>शिक्षक पात्रता परीक्षा (TET, CTET) की पूरी तैयारी।</p></div><div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div></div></a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Corporate-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>3. Corporate Law</h3><p>कंपनी कानून, अनुबंध और विलय-अधिग्रहण सीखें।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Cyber-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>4. Cyber Law & IT Act</h3><p>डिजिटल युग में साइबर अपराध और सूचना प्रौद्योगिकी कानून।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=IPR-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>5. Intellectual Property Rights</h3><p>पेटेंट, ट्रेडमार्क और कॉपीराइट कानूनों की समझ।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Criminal-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>6. Criminal Law (IPC & CrPC)</h3><p>भारतीय दंड संहिता और दंड प्रक्रिया संहिता की गहन जानकारी।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Constitution-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>7. Constitutional Law</h3><p>भारतीय संविधान के मौलिक सिद्धांत और संरचना।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Family-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>8. Family Law</h3><p>विवाह, तलाक, विरासत और गोद लेने से संबंधित कानून।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Legal-Drafting-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>9. Legal Drafting</h3><p>कानूनी नोटिस, अनुबंध और याचिकाओं का मसौदा तैयार करना।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
+                    <a href="upi://pay?pa=YOUR_UPI_ID@OKAXIS&pn=YOUR_COMPANY_NAME&am=500&cu=INR&tn=Tax-Law-Course" class="course-card-link">
+                        <div class="course-card">
+                            <div><h3>10. Tax Law (GST & Income Tax)</h3><p>GST और आयकर कानूनों की बुनियादी और उन्नत जानकारी।</p></div>
+                            <div><div class="course-price">₹500</div><div class="buy-now-btn">अभी खरीदें</div></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials">
-            </section>
+        <section id="about">
+            <div class="container">
+                <h2>हमारे बारे में (About Us)</h2>
+                <div class="policy-section">
+                    <p><strong>आपकी कंपनी का नाम</strong> में हमारा मिशन शिक्षा को सभी के लिए सुलभ और फायदेमंद बनाना है। हम मानते हैं कि सीखना केवल ज्ञान प्राप्त करने के बारे में नहीं है, बल्कि यह आत्मनिर्भरता और सशक्तिकरण का एक मार्ग भी है।</p>
+                    <p>हमने विशेष रूप से छात्रों के लिए एक अनूठा 'सीखो और कमाओ' मॉडल तैयार किया है। हमारे उच्च-गुणवत्ता वाले ऑनलाइन पाठ्यक्रमों के माध्यम से, आप न केवल मांग वाले कौशल सीखते हैं बल्कि हमारे रेफरल कार्यक्रम के माध्यम से एक स्थिर आय अर्जित करने का अवसर भी प्राप्त करते हैं। हमारा लक्ष्य आपको वित्तीय स्वतंत्रता प्रदान करना है ताकि आप अपनी पढ़ाई पर ध्यान केंद्रित कर सकें और अपनी जेब खर्च की चिंता न करें।</p>
+                    <p>हमारी टीम में अनुभवी शिक्षक और पेशेवर शामिल हैं जो आपको सर्वोत्तम सीखने का अनुभव प्रदान करने के लिए समर्पित हैं। हमसे जुड़ें और अपनी सीखने की यात्रा को कमाई की यात्रा में बदलें!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy-policy" style="background-color: var(--white-color);">
+            <div class="container">
+                <h2>Privacy Policy</h2>
+                <div class="policy-section">
+                    <h3>1. जानकारी जो हम एकत्र करते हैं</h3>
+                    <p>जब आप पंजीकरण करते हैं, कोर्स खरीदते हैं, या हमारी सेवाओं का उपयोग करते हैं तो हम आपसे व्यक्तिगत जानकारी एकत्र कर सकते हैं, जैसे नाम, ईमेल, फोन नंबर और भुगतान विवरण।</p>
+                    <h3>2. आपकी जानकारी का उपयोग</h3>
+                    <p>आपकी जानकारी का उपयोग आपको सेवाएं प्रदान करने, भुगतानों को संसाधित करने, आपके साथ संवाद करने और हमारे मंच को बेहतर बनाने के लिए किया जाता है। हम आपकी जानकारी का उपयोग आपको प्रमोशनल ऑफर्स के बारे में सूचित करने के लिए भी कर सकते हैं।</p>
+                    <h3>3. डेटा सुरक्षा</h3>
+                    <p>हम आपकी व्यक्तिगत जानकारी को अनधिकृत पहुंच से बचाने के लिए उद्योग-मानक सुरक्षा उपायों का उपयोग करते हैं। हालांकि, इंटरनेट पर कोई भी प्रसारण 100% सुरक्षित नहीं है।</p>
+                    <h3>4. तृतीय-पक्ष प्रकटीकरण</h3>
+                    <p>हम आपकी व्यक्तिगत रूप से पहचान योग्य जानकारी को बाहरी पार्टियों को नहीं बेचते, व्यापार नहीं करते या अन्यथा हस्तांतरित नहीं करते हैं।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="terms-and-conditions">
+            <div class="container">
+                <h2>Terms and Conditions</h2>
+                <div class="policy-section">
+                    <h3>1. शर्तों की स्वीकृति</h3>
+                    <p>हमारी वेबसाइट और सेवाओं का उपयोग करके, आप इन नियमों और शर्तों से बंधे होने के लिए सहमत हैं। यदि आप सहमत नहीं हैं, तो कृपया हमारी सेवाओं का उपयोग न करें।</p>
+                    <h3>2. उपयोगकर्ता खाता</h3>
+                    <p>आपको हमारी कुछ सेवाओं का उपयोग करने के लिए एक खाता बनाने की आवश्यकता हो सकती है। आप अपने खाते की गोपनीयता बनाए रखने और अपने खाते के तहत होने वाली सभी गतिविधियों के लिए जिम्मेदार हैं।</p>
+                    <h3>3. बौद्धिक संपदा (Intellectual Property)</h3>
+                    <p>हमारी वेबसाइट पर पाठ्यक्रम सामग्री, लोगो और टेक्स्ट सहित सभी सामग्री <strong>आपकी कंपनी का नाम</strong> की संपत्ति है और कॉपीराइट कानूनों द्वारा संरक्षित है।</p>
+                    <h3>4. निषिद्ध उपयोग</h3>
+                    <p>आप किसी भी गैरकानूनी उद्देश्य के लिए हमारी सेवा का उपयोग नहीं कर सकते हैं या इन शर्तों का उल्लंघन नहीं कर सकते हैं।</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="refund-policy" style="background-color: var(--white-color);">
+            <div class="container">
+                <h2>Refund & Cancellation Policy</h2>
+                <div class="policy-section">
+                    <h3>1. सामान्य नीति</h3>
+                    <p>हमारे सभी ऑनलाइन पाठ्यक्रम डिजिटल उत्पाद हैं, इसलिए हम आमतौर पर रिफंड की पेशकश नहीं करते हैं। एक बार जब कोई कोर्स खरीद लिया जाता है और एक्सेस प्रदान कर दिया जाता है, तो बिक्री को अंतिम माना जाता है।</p>
+                    <h3>2. असाधारण परिस्थितियाँ</h3>
+                    <p>कुछ असाधारण मामलों में, जैसे कि तकनीकी खराबी के कारण कोर्स एक्सेस करने में पूरी तरह से असमर्थता, हम मामले-दर-मामले के आधार पर रिफंड पर विचार कर सकते हैं। रिफंड का अनुरोध खरीद के 24 घंटों के भीतर किया जाना चाहिए।</p>
+                    <h3>3. रद्दीकरण (Cancellation)</h3>
+                    <p>चूंकि पाठ्यक्रम की सामग्री तक तत्काल पहुंच प्रदान की जाती है, इसलिए एक बार खरीद पूरी हो जाने के बाद रद्दीकरण संभव नहीं है।</p>
+                    <h3>4. संपर्क करें</h3>
+                    <p>रिफंड से संबंधित किसी भी प्रश्न के लिए, कृपया हमारी सहायता टीम से [your-email@example.com] पर संपर्क करें।</p>
+                </div>
+            </div>
+        </section>
     </main>
     
     <div class="floating-buttons">
@@ -200,7 +299,7 @@
         <div class="modal" id="referralModal">
             <button class="close-button">&times;</button>
             <h3><i class="fas fa-users"></i>रेफरल इनकम की जानकारी</h3>
-            <p>यह आपकी मासिक सैलरी के अलावा *अतिरिक्त कमाई* है, जो आपको हर जॉइनिंग पर तुरंत मिलती है।</p>
+            <p>यह आपकी मासिक सैलरी के अलावा अतिरिक्त कमाई है, जो आपको हर जॉइनिंग पर तुरंत मिलती है।</p>
             <ul>
                 <li><i class="fas fa-user-plus"></i> <strong>लेवल 1:</strong> आपके डायरेक्ट रेफरल पर <strong>₹150</strong> मिलेंगे।</li>
                 <li><i class="fas fa-user-friends"></i> <strong>लेवल 2:</strong> आपकी टीम के मेंबर जब किसी को जोड़ेंगे, तो आपको <strong>₹75</strong> मिलेंगे।</li>
@@ -209,8 +308,15 @@
             <div class="info-box">यह बोनस तुरंत आपके वॉलेट में जुड़ जाता है, जिसे आप कभी भी निकाल सकते हैं।</div>
         </div>
     </div>
+
     <footer>
         <p>&copy; <span id="copyright-year"></span> आपकी कंपनी का नाम. सभी अधिकार सुरक्षित।</p>
+        <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-and-conditions">Terms & Conditions</a>
+            <a href="#refund-policy">Refund Policy</a>
+        </div>
     </footer>
 
     <script>
